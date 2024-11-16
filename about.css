@@ -1,0 +1,266 @@
+body {
+    background-image: url("bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+.navbar .logo img {
+    height: 45px;
+    margin-right: 10px;
+}
+.navbar .logo span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.navbar .icons {
+    display: flex;
+    gap: 10px; /* Space between icons */
+
+}
+.navbar .icons img {
+    width: 25px;
+}
+.search-bar {
+    display: none; /* Hidden by default */
+    position: absolute;
+    right: 60px;
+    
+    margin-right: 18px;
+    top: 10px;
+    color: #ffc107;
+}
+.search-bar button {
+    background-color: #ffc107;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+.search-bar button:hover {
+    background-color: #e6b800;
+    
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-results {
+    margin-top: 20px;
+    display: none;
+}
+.icons a {
+    cursor: pointer;
+}
+
+/* Black bar for desktop menu */
+.black-bar {
+    background-color: black;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    height: 55px;
+}
+.black-bar .menu {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    flex-wrap: wrap;
+}
+.black-bar .menu a {
+    text-decoration: none;
+    color: white;
+    font-family: "Inter", monospace;
+    font-weight: bold;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+.black-bar .menu a.active {
+    color: #ffcc00;
+}
+
+.black-bar a:hover,
+.black-bar a.active {
+    color: #ffcc00;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero .overlay {
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.hero .overlay h1 {
+    font-size: 3em;
+    text-align: center;
+    align-items: center;
+    font-family: "Inter", monospace;
+    font-weight: bold;
+}
+.hero .overlay a {
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: black;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 50px;
+}
+    .menus a, .menu-icon, .close-icon {
+    display: none;
+    }
+
+    @media (max-width: 768px) {
+    .navbar {
+        flex-direction: rows;
+        padding: 15px;
+        height: 100px;
+    }
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+}
+    .navbar .logo img {
+        height: 65px;
+        margin-left: 65px;
+}
+    .navbar .icons {
+        display: flex;
+        gap: 20px; /* Space between icons */
+
+}
+    .navbar .icons img {
+        width: 35px;
+        height: 45px;
+}
+.search-bar {
+    display: none; /* Hidden by default */
+    position: absolute;
+    
+    margin-right: 52px;
+    top: 20px;
+    color: #ffc107;
+}
+.search-bar button {
+    background-color: #ffc107;
+    border: none;
+    padding: 5px 10px;
+    font-size: 25px;
+    cursor: pointer;
+    height: 60px;
+    border-radius: 25px;
+}
+.search-bar button:hover {
+    background-color: #e6b800;
+    
+}
+
+.search-bar input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 160px;
+}
+
+.search-results {
+    margin-top: 20px;
+    display: none;
+}
+    .black-bar {
+        display: none; /* Hide desktop menu on mobile */
+    }
+    .menu-icon, .close-icon {
+                font-size: 50px;
+                cursor: pointer;
+                padding: 15px;
+                display: block;
+            }
+            .menu-icon {
+                position: absolute;
+                top: 0;
+                left: 10px;
+            }
+            .close-icon {
+                position: absolute;
+                color:  #ffc107;
+                top: 0;
+                right: 0;
+                font-size: 35px;
+                
+            }
+            .menus {
+                display: block;
+                height: 100vh;
+                width: 50vw;
+                background-color: #333;
+                position: absolute;
+                align-items: left;
+                flex-direction: column;
+                z-index: 1000;
+            }
+            .menus a {
+                color: #f8f9fa;
+                text-decoration: none;
+                font-size: 30px;
+                margin-top: 30px;
+                margin-left: 30px;
+                display: flex;
+            }
+        
+    .hero .overlay h1 {
+        font-size: 65px;
+        padding: 0 20px;
+    }
+        .hero .overlay a {
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 50px;
+}        
+}

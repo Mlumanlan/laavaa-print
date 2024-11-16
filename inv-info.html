@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
+    <link rel="stylesheet" href="inv-info.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo2.png" alt="LaavaaPrint Logo">
+        </div>
+        <div class="icons">
+            <a href="#"><img src="search.png"alt="Search" height="24"></a>
+            <a href="cart.html"><img src="cart.png"alt="Cart" height="28"></a> 
+            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+        </div>
+    </div>
+        <div class="black-bar">
+        <div class="menu">
+                <a class="active" href="products.html">PRODUCTS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="packages.html">PACKAGES</a>
+                <a href="blog.html">BLOG</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+        
+        </header>
+
+        <div class="container">
+   <div class="product-image">
+    <img src="invcard.png" alt="Invitations"/>
+   </div>
+   <div class="product-details">
+    <h1>
+     Invitations & Greeting Cards
+    </h1>
+    <div class="price">
+     ₱50 - ₱150
+    </div>
+    <p>
+     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
+    </p>
+    <div class="options">
+        
+    <label>Style</label>
+      
+    <button>CUSTOM THANK YOU CARDS</button>
+    <button>BIRTHDAY INVITATIONS</button>
+    <button>GRADUATION INVITATIONS</button>
+    <button>WEDDING INVITATIONS</button>
+    <button>CUSTOM HOLIDAY CARDS</button>
+    <button>POSTCARDS</button>
+
+     <label>Format</label>
+     
+     <button>FOLDED</button>
+     <button>UNFOLDED</button>
+    </div>
+    <div class="options">
+        <label for="option1">Sizes</label>
+        <button id="option1">RECTANGLE</button>
+        <button id="option2">A1/BARONIAL</button>
+        <button id="option3">5 BARONIAL</button>
+        <button id="option4">A2/5.5 BARONIAL</button>
+        <button id="option4">A6/6 BARONIAL</button>
+        <button id="option4">A7/LEE (STANDARD)</button>
+        <button id="option4">A8</button>
+        <button id="option4">A9</button>
+        <button id="option4">A10</button>
+        <button id="option4">SQUARE</button>
+        <button id="option4">SMALL</button>
+        <button id="option4">MEDIUM</button>
+        <button id="option4">LARGE</button>
+
+    </div>
+    <div class="quantity">
+     <label>
+      Quantity
+     </label>
+        <button onclick="decreaseQuantity()">
+         -
+        </button>
+        <input id="quantity" type="text" value="1"/>
+        <button onclick="increaseQuantity()">
+         +
+        </button>
+       </div>
+    <button class="add-to-cart">
+     ADD TO CART</button>
+   </div>
+  </div>
+
+        <!-- Bootstrap JS and dependencies (optional) -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <script>
+        // Toggle the sidebar and maximize content
+            document.getElementById('toggleSidebar').addEventListener('click', function () {
+    var sidebar = document.getElementById('sidebar');
+    var content = document.getElementById('content');
+    var items = document.querySelector('.items');
+
+    // Toggle the collapsed state for the sidebar
+    sidebar.classList.toggle('collapsed');
+
+    // Toggle the maximized state for the content
+    content.classList.toggle('maximized');
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all buttons for Type and Style options
+    const optionButtons = document.querySelectorAll(".product-details .options button");
+
+    optionButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            // Remove active class from all buttons in the current options group
+            const buttonsInGroup = this.parentNode.querySelectorAll("button");
+
+            buttonsInGroup.forEach(btn => {
+                btn.classList.remove("active-style");  // Remove the 'active-style' class
+            });
+
+            // Add active-style class to the clicked button
+            this.classList.add("active-style");
+        });
+    });
+});
+
+function increaseQuantity() {
+    var quantity = document.getElementById('quantity');
+    var value = parseInt(quantity.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    quantity.value = value;
+}
+
+function decreaseQuantity() {
+    var quantity = document.getElementById('quantity');
+    var value = parseInt(quantity.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    quantity.value = value;
+}
+
+</script>
+</body>
+</html> 

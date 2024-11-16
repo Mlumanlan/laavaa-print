@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
+    <link rel="stylesheet" href="beaded-info.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo2.png" alt="LaavaaPrint Logo">
+        </div>
+        <div class="icons">
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
+            <a href="#" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
+            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+        </div>
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
+            <button onclick="performSearch()">Search</button>
+        </div>
+    </div>
+    </div>
+        <div class="black-bar">
+        <div class="menu">
+                <a class="active" href="products.html">PRODUCTS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="packages.html">PACKAGES</a>
+                <a href="blog.html">BLOG</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+        <!-- Items Section with URLs -->
+        <div class="items" id="items">
+            <div class="item" data-name="Business Cards" data-url="business-cards.html"></div>
+            <div class="item" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
+            <div class="item" data-name="Posters and Banners" data-url="posters-banners.html"></div>
+            <div class="item" data-name="Sign and Signage" data-url="sign-signage.html"></div>
+            <div class="item" data-name="Promotional Items" data-url="promotional-items.html"></div>
+            <div class="item" data-name="Booklets and Catalogs" data-url="booklets-catalogs.html"></div>
+            <div class="item" data-name="Custom Stationery" data-url="custom-stationery.html"></div>
+            <div class="item" data-name="Invitations and Greeting Cards" data-url="invitations-greeting-cards.html"></div>
+            <div class="item" data-name="Packaging Materials" data-url="packaging-materials.html"></div>
+            <div class="item" data-name="Pens" data-url="pen-info.php"></div>
+            <div class="item" data-name="Mugs" data-url="pro-mugs.html"></div>
+            <div class="item" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
+            <div class="item" data-name="Jerseys" data-url="pro-jerseys.html"></div>
+            <div class="item" data-name="Keychains" data-url="pro-keychains.html"></div>
+            <div class="item" data-name="Calendars" data-url="pro-calendars.html"></div>
+            <div class="item" data-name="Lanyards" data-url="pro-lanyards.html"></div>
+            <div class="item" data-name="Tote Bags" data-url="pro-totebag.html"></div>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+     
+        </header>
+
+        <div class="container">
+                <div class="slideshow-container">
+                 <div class="mySlides active">
+                     <div class="numbertext"></div>
+                  <img src="bd1.png" alt="Image"/>
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                  <img src="bd2.png" alt="Image"  />
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                  <img src="bd3.png" alt="Image"/>
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                 <img src="bd4.png" alt="Image"/>
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                 <img src="bd5.png" alt="Image"/>
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                 <img src="bd6.png" alt="Image"/>
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                 <img src="bd7.png" alt="Image"/>
+                 </div>
+                 <div class="mySlides">
+                     <div class="numbertext"></div>
+                 <img src="bd8.png" alt="Image"/>
+                 </div>
+                 
+                 <a class="prev" onclick="plusSlides(-1)">
+                  ❮
+                 </a>
+                 <a class="next" onclick="plusSlides(1)">
+                  ❯
+                 </a>
+                </div>
+   <div class="product-details">
+    <h1>BEADED</h1>
+    <div class="price">₱50 - ₱150</div>
+    <p>
+     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
+    </p>
+    <form id="productForm">
+    <div class="options">
+
+     <label>Types</label>
+     <button type="button" onclick="selectType('Name')">Name</button>
+     <button type="button" onclick="selectType('Initial')">Initial</button>
+     <input type="hidden" id="selectedType" name="types">
+    </div>
+
+        <div class="options">
+            <label>Style</label>
+            <button type="button" onclick="selectStyle('Style 1')">Style 1</button>
+            <button type="button" onclick="selectStyle('Style 2')">Style 2</button>
+            <button type="button" onclick="selectStyle('Style 3')">Style 3</button>
+            <button type="button" onclick="selectStyle('Style 4')">Style 4</button>
+            <button type="button" onclick="selectStyle('Style 5')">Style 5</button>
+            <button type="button" onclick="selectStyle('Style 6')">Style 6</button>
+            <button type="button" onclick="selectStyle('Style 7')">Style 7</button>
+            <button type="button" onclick="selectStyle('Style 8')">Style 8</button>
+
+            <input type="hidden" id="selectedStyle" name="style">
+        </div>
+
+        <div class="quantity">
+            <label>Quantity</label>
+            <button type="button" onclick="decreaseQuantity()">-</button>
+            <input id="quantity" name="quantity" type="text" value="1" readonly>
+            <button type="button" onclick="increaseQuantity()">+</button>
+        </div>
+    
+        <input type="hidden" name="product_name" value="Keychain">
+        <input type="hidden" name="price" value="50"> 
+        <input type="hidden" name="category" value="Beaded">
+        <button type="button" class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
+    </form>
+</div>
+</div>
+
+<!-- Cart Modal -->
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCart()">&times;</span>
+        <h1>Your Cart</h1>
+        <h4>PRODUCT TOTAL</h4>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+            <span>Subtotal:</span>
+            <span id="totalPrice">₱0.00</span>
+        </div>
+        <button class="checkout-btn">Check out</button>
+    </div>
+</div>
+
+  <!-- Bootstrap JS and dependencies (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+      const optionButtons = document.querySelectorAll(".product-details .options button");
+
+      optionButtons.forEach(button => {
+          button.addEventListener("click", function () {
+              const buttonsInGroup = this.parentNode.querySelectorAll("button");
+
+              buttonsInGroup.forEach(btn => {
+                  btn.classList.remove("active-style");
+              });
+
+              this.classList.add("active-style");
+          });
+      });
+  });
+  function toggleSearch() {
+      const searchBar = document.getElementById('searchBar');
+      searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
+  }
+
+  function handleEnter(event) {
+      if (event.key === 'Enter') {
+          performSearch();
+      }
+  }
+
+  function performSearch() {
+      const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+      const items = document.querySelectorAll('.item');
+
+      // Check for an exact match and redirect if found
+      let foundUrl = null;
+      items.forEach(item => {
+          const itemName = item.getAttribute('data-name').toLowerCase();
+          const itemUrl = item.getAttribute('data-url');
+          if (itemName === searchQuery) {
+              foundUrl = itemUrl;
+          }
+      });
+
+      // Redirect if a match is found
+      if (foundUrl) {
+          window.location.href = foundUrl;
+      } else {
+          alert(`No results found for "${searchQuery}"`);
+      }
+  }
+  function selectType(types) {
+  document.getElementById('selectedType').value = types;
+}
+
+function selectStyle(style) {
+  document.getElementById('selectedStyle').value = style;
+}
+
+function increaseQuantity() {
+  var quantity = document.getElementById('quantity');
+  quantity.value = parseInt(quantity.value, 10) + 1;
+}
+
+function decreaseQuantity() {
+  var quantity = document.getElementById('quantity');
+  if (quantity.value > 1) {
+      quantity.value = parseInt(quantity.value, 10) - 1;
+  }
+}
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+      showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+      showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      slides[slideIndex - 1].style.display = "block";  
+  }
+ 
+  let cartItems = [];
+
+function toggleCart() {
+  const cartModal = document.getElementById("cartModal");
+  cartModal.classList.toggle("open");
+}
+
+function addToCart() {
+  const productName = document.querySelector("input[name='product_name']").value;
+  const category = document.querySelector("input[name='category']").value;
+  const type = document.getElementById("selectedType").value;
+  const style = document.getElementById("selectedStyle").value;
+  const quantity = parseInt(document.getElementById("quantity").value, 10);
+  const price = parseInt(document.querySelector("input[name='price']").value, 10);
+  const total = price * quantity;
+  const imageUrl = document.querySelector(".mySlides img").src;
+
+  cartItems.push({ productName, category, type, style, quantity, price, total, imageUrl });
+  renderCartItems();
+  toggleCart();
+}
+
+function renderCartItems() {
+  const cartItemsContainer = document.getElementById("cartItems");
+  const totalPriceElement = document.getElementById("totalPrice");
+  let totalPrice = 0;
+
+  cartItemsContainer.innerHTML = "";
+  cartItems.forEach((item, index) => {
+      totalPrice += item.total;
+      cartItemsContainer.innerHTML += `
+          <div class="cart-item">
+              <img src="${item.imageUrl}" alt="${item.productName}">
+              <div class="cart-item-details">
+                  <div class="cart-item-a">
+                      <span class="item-name">Product: ${item.productName}</span>
+                      <span class="item-price">₱${item.total}.00</span>
+                  </div>
+                  <span class="item-name">Category: ${item.category}</span>
+                  <div>Type: ${item.type}</div>
+                  <div>Style: ${item.style}</div>
+                  <div class="quantity-controls">
+                      <button onclick="decreaseCartQuantity(${index})">-</button>
+                      <input type="text" value="${item.quantity}" readonly>
+                      <button onclick="increaseCartQuantity(${index})">+</button>
+                       <button class="remove-item" onclick="removeFromCart(${index})">
+                  <img src="delete.png" alt="Delete">
+              </button>
+                  </div>
+              </div>
+          </div>
+      `;
+  });
+
+  totalPriceElement.textContent = `₱${totalPrice}.00`;
+}
+
+function removeFromCart(index) {
+  cartItems.splice(index, 1);
+  renderCartItems();
+}
+
+function increaseCartQuantity(index) {
+  cartItems[index].quantity++;
+  cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+  renderCartItems();
+}
+
+function decreaseCartQuantity(index) {
+  if (cartItems[index].quantity > 1) {
+      cartItems[index].quantity--;
+      cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+      renderCartItems();
+  }
+}
+</script>
+</body>
+</html>

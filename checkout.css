@@ -1,0 +1,186 @@
+body {
+    background-color: white;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    background-color: #ffc107;
+    position: inherit;
+    align-items: center;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.navbar .header {
+    align-items: left;
+    margin-left: -1125px;
+    margin-top: 10px;
+    flex-direction: column;
+}
+.navbar .header h1 {
+    margin: 0;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.navbar .header h4 {
+    margin-left: 10px;
+    letter-spacing: 5px;
+    font-size: 15px;
+}
+.navbar .logo {
+    display: flex;
+    margin: -10px;
+    align-items: center;
+}
+.navbar .logo img {
+    height: 75px;
+    width: 70px;
+    margin-right: 10px;
+}
+.navbar .logo span {
+    font-weight: bold;
+}
+.navbar .icons {
+    display: flex;
+    gap: 10px; /* Space between icons */
+
+}
+.navbar .icons img {
+    width: 25px;
+}
+.container {
+    display: flex;
+    padding: 20px;
+    width: 50%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left, .right {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+.left {
+    flex: 2;
+    margin-right: 20px;
+}
+.right {
+    flex: 1;
+}
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+input[type="text"], input[type="email"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.checkbox input {
+    margin-right: 10px;
+    color: #ffc107;
+}
+.shipping-method {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.payment-method {
+    margin-bottom: 20px;
+}
+.payment-method img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.payment-method billing-section {
+    margin-bottom: 30px;
+}
+.payment-method .billing-section p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #666;
+}
+.payment-method  .payment-option, .billing-option {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.payment-method  .payment-option label , .billing-option label {
+    display: block;
+    font-size: 16px;
+}
+.payment-method  .payment-option input, .billing-option input {
+    margin-right: 10px;
+}
+.payment-method  .payment-option img {
+    vertical-align: right;
+}
+.cod-description {
+    background-color: #f7f7f7;
+    padding: 10px;
+    font-size: 13px;
+    color: #666;
+}
+.complete-order-btn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-color: #ffcc00;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 20px;
+}
+.product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-direction: row;
+}
+.product img {
+    height: 70px;
+    margin-right: 10px;
+}
+.product-details {
+    flex: 1;
+}
+.product-price {
+    font-weight: bold;
+}
+.total {
+    font-size: 18px;
+    flex-direction: row;
+    font-weight: bold;
+}

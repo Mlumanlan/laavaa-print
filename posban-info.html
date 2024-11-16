@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
+    <link rel="stylesheet" href="posban-info.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo2.png" alt="LaavaaPrint Logo">
+        </div>
+        <div class="icons">
+            <a href="#"><img src="search.png"alt="Search" height="24"></a>
+            <a href="cart.html"><img src="cart.png"alt="Cart" height="28"></a> 
+            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+        </div>
+    </div>
+        <div class="black-bar">
+        <div class="menu">
+                <a class="active" href="products.html">PRODUCTS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="packages.html">PACKAGES</a>
+                <a href="blog.html">BLOG</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+        </div>
+        
+        </header>
+
+        <div class="container">
+   <div class="product-image">
+    <img src="poster.png" alt="Posters"/>
+   </div>
+   <div class="product-details">
+    <h1>
+     Posters
+    </h1>
+    <div class="price">
+     ₱50 - ₱150
+    </div>
+    <p>
+     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
+    </p>
+    <div class="options">
+        
+    <label>Type</label>
+      
+    <button>Advertising</button>
+    <button>Informative</button>
+    <button>Motivational</button>
+    <button>Movie</button>
+    <button>Event</button>
+    <button>Travel</button>
+    <button>Research</button>
+
+     <label>Style</label>
+     
+     <button>FOAM BOARD</button>
+     <button>PVC</button>
+    </div>
+    <div class="options">
+        <label for="option1">Sizes</label>
+        <button id="option1">18" X 24"</button>
+        <button id="option2">24" X 36"</button>
+        <button id="option3">27" X 40"</button>
+        <button id="option4">48" X 36"</button>
+    </div>
+    <div class="quantity">
+     <label>
+      Quantity
+     </label>
+        <button onclick="decreaseQuantity()">
+         -
+        </button>
+        <input id="quantity" type="text" value="1"/>
+        <button onclick="increaseQuantity()">
+         +
+        </button>
+       </div>
+    <button class="add-to-cart">
+     ADD TO CART</button>
+   </div>
+  </div>
+
+  <div class="container">
+    <div class="product-image">
+     <img src="banner.png" alt="Banners"/>
+    </div>
+    <div class="product-details">
+     <h1>
+      Banners
+     </h1>
+     <div class="price">
+      ₱50 - ₱150
+     </div>
+     <p>
+      A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
+     </p>
+     <div class="options">
+
+        <label>Type</label>
+      
+        <button>Hanging</button>
+        <button>Retractable</button>
+        <button>Step & Repeat</button>
+        <button>Table Throws</button>
+        <button>Tension Fabric</button>
+        <button>Feather Flag</button>
+
+      <label>Style</label>
+      
+      <button>Roll-up</button>
+      <button>Vinyl</button>
+     </div>
+     <div class="options">
+         <label for="option1">Sizes</label>
+         <button id="option1">24" X 60"</button>
+         <button id="option2">36" X 72"</button>
+         <button id="option3">48" X 96"</button>
+         <button id="option4">72" X 48"</button>
+         <button id="option5">96" X 24"</button>
+     </div>
+     <div class="quantity">
+      <label>
+       Quantity
+      </label>
+         <button onclick="decreaseQuantity()">
+          -
+         </button>
+         <input id="quantity" type="text" value="1"/>
+         <button onclick="increaseQuantity()">
+          +
+         </button>
+        </div>
+     <button class="add-to-cart">
+      ADD TO CART</button>
+    </div>
+   </div>
+
+        <!-- Bootstrap JS and dependencies (optional) -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <script>
+        // Toggle the sidebar and maximize content
+            document.getElementById('toggleSidebar').addEventListener('click', function () {
+    var sidebar = document.getElementById('sidebar');
+    var content = document.getElementById('content');
+    var items = document.querySelector('.items');
+
+    // Toggle the collapsed state for the sidebar
+    sidebar.classList.toggle('collapsed');
+
+    // Toggle the maximized state for the content
+    content.classList.toggle('maximized');
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all buttons for Type and Style options
+    const optionButtons = document.querySelectorAll(".product-details .options button");
+
+    optionButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            // Remove active class from all buttons in the current options group
+            const buttonsInGroup = this.parentNode.querySelectorAll("button");
+
+            buttonsInGroup.forEach(btn => {
+                btn.classList.remove("active-style");  // Remove the 'active-style' class
+            });
+
+            // Add active-style class to the clicked button
+            this.classList.add("active-style");
+        });
+    });
+});
+
+function increaseQuantity() {
+    var quantity = document.getElementById('quantity');
+    var value = parseInt(quantity.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    quantity.value = value;
+}
+
+function decreaseQuantity() {
+    var quantity = document.getElementById('quantity');
+    var value = parseInt(quantity.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    quantity.value = value;
+}
+
+</script>
+</body>
+</html> 

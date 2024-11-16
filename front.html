@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaavaaPrint Solution</title>
+    <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
+    <link rel="stylesheet" href="front.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo2.png" alt="LaavaaPrint Logo">
+        </div>
+        <div class="icons">
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
+            <a href="#"><img src="cart.png"alt="Cart" height="28"></a> 
+            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+        </div>
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
+            <button onclick="performSearch()">Search</button>
+        </div>
+    </div>
+    <div class="black-bar">
+        <div class="menu">
+            <a href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    </div>
+    <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+    <div class="menus" id="menus">
+        <div class="close-icon" onclick="closeMenu()">X</div>
+        <a href="products.html">PRODUCTS</a>
+        <a href="services.html">SERVICES</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+    </header>
+
+    <div class="hero">
+    <div class="overlay">
+            <h1>Premium Printing,<br>Endless Possibilities</h1>
+            <a href="products.html" class="cta-button">Start an Order</a>
+        </div>
+    </div>
+
+    <!-- Search Results Section -->
+<div class="search-results" id="searchResults"></div>
+
+<!-- Items Section with URLs -->
+<div class="items" id="items">
+    <div class="item" data-name="Business Cards" data-url="business-cards.html"></div>
+    <div class="item" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
+    <div class="item" data-name="Posters and Banners" data-url="posters-banners.html"></div>
+    <div class="item" data-name="Sign and Signage" data-url="sign-signage.html"></div>
+    <div class="item" data-name="Promotional Items" data-url="promotional-items.html"></div>
+    <div class="item" data-name="Booklets and Catalogs" data-url="booklets-catalogs.html"></div>
+    <div class="item" data-name="Custom Stationery" data-url="custom-stationery.html"></div>
+    <div class="item" data-name="Invitations and Greeting Cards" data-url="invitations-greeting-cards.html"></div>
+    <div class="item" data-name="Packaging Materials" data-url="packaging-materials.html"></div>
+    <div class="item" data-name="Pens" data-url="pen-info.php"></div>
+    <div class="item" data-name="Mugs" data-url="pro-mugs.html"></div>
+    <div class="item" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
+    <div class="item" data-name="Jerseys" data-url="pro-jerseys.html"></div>
+    <div class="item" data-name="Keychains" data-url="pro-keychains.html"></div>
+    <div class="item" data-name="Calendars" data-url="pro-calendars.html"></div>
+    <div class="item" data-name="Lanyards" data-url="pro-lanyards.html"></div>
+    <div class="item" data-name="Tote Bags" data-url="pro-totebag.html"></div>
+</div>
+
+<script>
+    function toggleSearch() {
+        const searchBar = document.getElementById('searchBar');
+        searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
+    }
+
+    function handleEnter(event) {
+        if (event.key === 'Enter') {
+            performSearch();
+        }
+    }
+
+    function performSearch() {
+        const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+        const items = document.querySelectorAll('.item');
+
+        // Check for an exact match and redirect if found
+        let foundUrl = null;
+        items.forEach(item => {
+            const itemName = item.getAttribute('data-name').toLowerCase();
+            const itemUrl = item.getAttribute('data-url');
+            if (itemName === searchQuery) {
+                foundUrl = itemUrl;
+            }
+        });
+
+        // Redirect if a match is found
+        if (foundUrl) {
+            window.location.href = foundUrl;
+        } else {
+            alert(`No results found for "${searchQuery}"`);
+        }
+    }
+    function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
+
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
+</script>
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
