@@ -205,6 +205,7 @@ body {
     .info-item {
         width: 100%;
     }
+    
     .content {
         flex-direction: column;
     }
