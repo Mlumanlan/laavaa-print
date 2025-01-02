@@ -6,7 +6,7 @@
     <title>Products</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="pro-calendars.css">
-    <!-- Bootstrap CSS -->
+   
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -19,7 +19,7 @@
         <div class="icons">
             <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
             <a href="cart.html"><img src="cart.png" alt="Cart" height="28"></a> 
-            <a href="user.html"><img src="user.png" alt="User" height="24"></a>
+            <a href="javascript:void(0);" onclick="logout()"><img src="user.png" alt="User" height="24"></a>
         </div>
         <div class="search-bar" id="searchBar" style="display: none;">
             <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
@@ -34,7 +34,14 @@
                 <a href="contact.html">CONTACT</a>
             </div>
         </div>
-        
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="menus" id="menus">
+            <div class="close-icon" onclick="closeMenu()">X</div>
+            <a class="active" href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
         </header>
 
   <div class="main">
@@ -44,15 +51,14 @@
         </h3>
     
      <ul>
-     <li><a href="#">Business Cards</a></li>
-     <li><a href="#">Flyers and Brochures</a></li>
-     <li><a href="#">Posters and Banners</a></li>
-     <li><a href="#">Sign and Signage</a></li>
-     <li><a class="active" href="#">Promotional Items</a></li>
-     <li><a href="#">Booklets and Catalogs</a></li>
-     <li><a href="#">Custom Stationery</a></li>
-     <li><a href="#">Invitations and Greeting Cards</a></li>
-     <li><a href="#">Packaging Materials</a></li>
+        <li><a href="businesscard-info.html">Business Cards</a></li>
+        <li><a href="flybro-info.html">Flyers and Brochures</a></li>
+        <li><a href="posban-info.html">Posters and Banners</a></li>
+        <li><a href="sign-info.html">Sign and Signage</a></li>
+        <li><a class="active" href="#">Promotional Items</a></li>
+        <li><a href="bookcat-info.html">Booklets and Catalogs</a></li>
+        <li><a href="cusstationery-info.html">Custom Stationery</a></li>
+        <li><a href="inv-info.html">Invitations and Greeting Cards</a></li>
     </ul>
    </div>
    <i class="fas fa-arrow-left toggle-icon" id="toggleSidebar">
@@ -60,13 +66,7 @@
     </i>
     <div id="content" class="content">
         <div class="header">
-          <h3>Calendars</h3>
-          <div class="sort">
-          <select>
-           <option>New to old</option>
-           <option>A - Z</option>
-          </select>
-         </div>
+          <h5>Calendars</h5>
     
     <div class="items">
     <div class="item">
@@ -97,45 +97,43 @@
    </div>
   </div>
 
-<div class="items" id="items">
-    <div class="item searchable" data-name="Business Cards" data-url="business-cards.html"></div>
-    <div class="item searchable" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
-    <div class="item searchable" data-name="Posters and Banners" data-url="posters-banners.html"></div>
-    <div class="item searchable" data-name="Sign and Signage" data-url="sign-signage.html"></div>
-    <div class="item searchable" data-name="Promotional Items" data-url="promotional-items.html"></div>
-    <div class="item searchable" data-name="Booklets and Catalogs" data-url="booklets-catalogs.html"></div>
-    <div class="item searchable" data-name="Custom Stationery" data-url="custom-stationery.html"></div>
-    <div class="item searchable" data-name="Invitations and Greeting Cards" data-url="invitations-greeting-cards.html"></div>
-    <div class="item searchable" data-name="Packaging Materials" data-url="packaging-materials.html"></div>
-    <div class="item searchable" data-name="Pens" data-url="pen-info.php"></div>
-    <div class="item searchable" data-name="Mugs" data-url="pro-mugs.html"></div>
-    <div class="item searchable" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
-    <div class="item searchable" data-name="Jerseys" data-url="pro-jerseys.html"></div>
-    <div class="item searchable" data-name="Keychains" data-url="pro-keychains.html"></div>
-    <div class="item searchable" data-name="Calendars" data-url="pro-calendars.html"></div>
-    <div class="item searchable" data-name="Lanyards" data-url="pro-lanyards.html"></div>
-    <div class="item searchable" data-name="Tote Bags" data-url="pro-totebag.html"></div>
+  <div class="itemss" id="items">
+    <div class="itemsss" data-name="Business Cards" data-url="businesscard-info.html"></div>
+    <div class="itemsss" data-name="Flyers and Brochures" data-url="flybro-info.html"></div>
+    <div class="itemsss" data-name="Posters and Banners" data-url="posban-info.html"></div>
+    <div class="itemsss" data-name="Sign and Signage" data-url="sign-info.html"></div>
+    <div class="itemsss" data-name="Promotional Items" data-url="keychain-info.html"></div>
+    <div class="itemsss" data-name="Booklets and Catalogs" data-url="bookcat-info.html"></div>
+    <div class="itemsss" data-name="Custom Stationery" data-url="cusstationery-info.html"></div>
+    <div class="itemsss" data-name="Invitations and Greeting Cards" data-url="inv-info.html"></div>
+    <div class="itemsss" data-name="Pens" data-url="pro-pens.html"></div>
+    <div class="itemsss" data-name="Mugs" data-url="pro-mugs.html"></div>
+    <div class="itemsss" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
+    <div class="itemsss" data-name="Jerseys" data-url="pro-jerseys.html"></div>
+    <div class="itemsss" data-name="Keychains" data-url="pro-keychains.html"></div>
+    <div class="itemsss" data-name="Calendars" data-url="pro-calendars.html"></div>
+    <div class="itemsss" data-name="Lanyards" data-url="pro-lanyards.html"></div>
+    <div class="itemsss" data-name="Tote Bags" data-url="pro-totebag.html"></div>
 </div>
     <div class="search-results" id="searchResults"></div>
 
-        <!-- Bootstrap JS and dependencies (optional) -->
+
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
         <script>
-        // Toggle the sidebar and maximize content
+
             document.getElementById('toggleSidebar').addEventListener('click', function () {
     var sidebar = document.getElementById('sidebar');
     var content = document.getElementById('content');
     var items = document.querySelector('.items');
 
-    // Toggle the collapsed state for the sidebar
     sidebar.classList.toggle('collapsed');
 
-    // Toggle the maximized state for the content
+  
     content.classList.toggle('maximized');
 });
 function toggleSearch() {
         const searchBar = document.getElementById('searchBar');
-        searchBar.style.display = searchBar.style.display === 'none' ? 'block' : 'none';
+        searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
     }
 
     function handleEnter(event) {
@@ -145,21 +143,37 @@ function toggleSearch() {
     }
 
     function performSearch() {
-        const searchQuery = document.querySelector('#searchBar input[type="text"]').value.trim().toLowerCase();
-        const items = document.querySelectorAll('.item.searchable');
-        let foundMatch = false;
+        const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+        const itemss = document.querySelectorAll('.itemsss');
 
-        items.forEach(item => {
-            const itemName = item.getAttribute('data-name').toLowerCase();
-            const itemUrl = item.getAttribute('data-url');
-            if (itemName === searchQuery) { // Check for an exact match
-                foundMatch = true;
-                window.location.href = itemUrl; // Redirect to the corresponding URL
+   
+        let foundUrl = null;
+        itemss.forEach(itemsss => {
+            const itemName = itemsss.getAttribute('data-name').toLowerCase();
+            const itemUrl = itemsss.getAttribute('data-url');
+            if (itemName === searchQuery) {
+                foundUrl = itemUrl;
             }
         });
 
-        if (!foundMatch) {
+        if (foundUrl) {
+            window.location.href = foundUrl;
+        } else {
             alert(`No results found for "${searchQuery}"`);
         }
     }
+    function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
+
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
+        function logout() {
+            const userConfirmed = window.confirm("Are you sure you want to logout?");
+            if (userConfirmed) {
+            
+                window.location.href = "front.html";
+            }
+        }
 </script>

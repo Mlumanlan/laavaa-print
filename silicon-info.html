@@ -5,7 +5,7 @@
     <title>Products</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="silicon-info.css">
-    <!-- Bootstrap CSS -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
@@ -17,8 +17,8 @@
         </div>
         <div class="icons">
             <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
-            <a href="#" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
-            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+            <a href="cart.html" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
+            <a href="javascript:void(0);" onclick="logout()"><img src="user.png" alt="User" height="24"></a>
         </div>
         <div class="search-bar" id="searchBar">
             <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
@@ -34,7 +34,15 @@
                 <a href="contact.html">CONTACT</a>
             </div>
         </div>
-        <!-- Items Section with URLs -->
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="menus" id="menus">
+            <div class="close-icon" onclick="closeMenu()">X</div>
+            <a href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a class="active"  href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+    
         <div class="items" id="items">
             <div class="item" data-name="Business Cards" data-url="business-cards.html"></div>
             <div class="item" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
@@ -102,9 +110,9 @@
                 </div>
    <div class="product-details">
     <h1>SILICON</h1>
-    <div class="price">₱50 - ₱150</div>
+    <div class="price">₱934.00</div>
     <p>
-     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
+     A vibrant, personalized keychain featuring beautifully silicon item, perfect for adding a colorful touch to your accessories.
     </p>
     <form id="productForm">
     <div class="options">
@@ -132,19 +140,18 @@
         <div class="quantity">
             <label>Quantity</label>
             <button type="button" onclick="decreaseQuantity()">-</button>
-            <input id="quantity" name="quantity" type="text" value="1" readonly>
+            <input id="quantity" name="quantity" type="text" value="15">
             <button type="button" onclick="increaseQuantity()">+</button>
         </div>
     
         <input type="hidden" name="product_name" value="Keychain">
-        <input type="hidden" name="price" value="50"> 
+        <input type="hidden" name="price" value="934"> 
         <input type="hidden" name="category" value="Silicon">
         <button type="button" class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
     </form>
 </div>
 </div>
 
-<!-- Cart Modal -->
 <div id="cartModal" class="cart-modal">
     <div class="cart-modal-content">
         <span class="close" onclick="toggleCart()">&times;</span>
@@ -155,180 +162,198 @@
             <span>Subtotal:</span>
             <span id="totalPrice">₱0.00</span>
         </div>
-        <button class="checkout-btn">Check out</button>
+        <button onclick="checkout()" class="checkout-btn">Check out</button>
     </div>
 </div>
 
-  <!-- Bootstrap JS and dependencies (optional) -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
 </script>
 <script>
- document.addEventListener("DOMContentLoaded", function () {
-      const optionButtons = document.querySelectorAll(".product-details .options button");
+    document.addEventListener("DOMContentLoaded", function () {
+         const optionButtons = document.querySelectorAll(".product-details .options button");
+   
+         optionButtons.forEach(button => {
+             button.addEventListener("click", function () {
+                 const buttonsInGroup = this.parentNode.querySelectorAll("button");
+   
+                 buttonsInGroup.forEach(btn => {
+                     btn.classList.remove("active-style");
+                 });
+   
+                 this.classList.add("active-style");
+             });
+         });
+     });
+     function logout() {
+            const userConfirmed = window.confirm("Are you sure you want to logout?");
+            if (userConfirmed) {
+              
+                window.location.href = "front.html";
+            }
+        }
+     function toggleSearch() {
+         const searchBar = document.getElementById('searchBar');
+         searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
+     }
+   
+     function handleEnter(event) {
+         if (event.key === 'Enter') {
+             performSearch();
+         }
+     }
+   
+     function performSearch() {
+         const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+         const items = document.querySelectorAll('.item');
+   
+         let foundUrl = null;
+         items.forEach(item => {
+             const itemName = item.getAttribute('data-name').toLowerCase();
+             const itemUrl = item.getAttribute('data-url');
+             if (itemName === searchQuery) {
+                 foundUrl = itemUrl;
+             }
+         });
+   
+         if (foundUrl) {
+             window.location.href = foundUrl;
+         } else {
+             alert(`No results found for "${searchQuery}"`);
+         }
+     }
+     function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
 
-      optionButtons.forEach(button => {
-          button.addEventListener("click", function () {
-              const buttonsInGroup = this.parentNode.querySelectorAll("button");
-
-              buttonsInGroup.forEach(btn => {
-                  btn.classList.remove("active-style");
-              });
-
-              this.classList.add("active-style");
-          });
-      });
-  });
-  function toggleSearch() {
-      const searchBar = document.getElementById('searchBar');
-      searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
-  }
-
-  function handleEnter(event) {
-      if (event.key === 'Enter') {
-          performSearch();
-      }
-  }
-
-  function performSearch() {
-      const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
-      const items = document.querySelectorAll('.item');
-
-      // Check for an exact match and redirect if found
-      let foundUrl = null;
-      items.forEach(item => {
-          const itemName = item.getAttribute('data-name').toLowerCase();
-          const itemUrl = item.getAttribute('data-url');
-          if (itemName === searchQuery) {
-              foundUrl = itemUrl;
-          }
-      });
-
-      // Redirect if a match is found
-      if (foundUrl) {
-          window.location.href = foundUrl;
-      } else {
-          alert(`No results found for "${searchQuery}"`);
-      }
-  }
-  function selectType(types) {
-  document.getElementById('selectedType').value = types;
-}
-
-function selectStyle(style) {
-  document.getElementById('selectedStyle').value = style;
-}
-
-function increaseQuantity() {
-  var quantity = document.getElementById('quantity');
-  quantity.value = parseInt(quantity.value, 10) + 1;
-}
-
-function decreaseQuantity() {
-  var quantity = document.getElementById('quantity');
-  if (quantity.value > 1) {
-      quantity.value = parseInt(quantity.value, 10) - 1;
-  }
-}
-
-  let slideIndex = 1;
-  showSlides(slideIndex);
-
-  function plusSlides(n) {
-      showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-      showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-      }
-      slides[slideIndex - 1].style.display = "block";  
-  }
- 
-  let cartItems = [];
-
-function toggleCart() {
-  const cartModal = document.getElementById("cartModal");
-  cartModal.classList.toggle("open");
-}
-
-function addToCart() {
-  const productName = document.querySelector("input[name='product_name']").value;
-  const category = document.querySelector("input[name='category']").value;
-  const type = document.getElementById("selectedType").value;
-  const style = document.getElementById("selectedStyle").value;
-  const quantity = parseInt(document.getElementById("quantity").value, 10);
-  const price = parseInt(document.querySelector("input[name='price']").value, 10);
-  const total = price * quantity;
-  const imageUrl = document.querySelector(".mySlides img").src;
-
-  cartItems.push({ productName, category, type, style, quantity, price, total, imageUrl });
-  renderCartItems();
-  toggleCart();
-}
-
-function renderCartItems() {
-  const cartItemsContainer = document.getElementById("cartItems");
-  const totalPriceElement = document.getElementById("totalPrice");
-  let totalPrice = 0;
-
-  cartItemsContainer.innerHTML = "";
-  cartItems.forEach((item, index) => {
-      totalPrice += item.total;
-      cartItemsContainer.innerHTML += `
-          <div class="cart-item">
-              <img src="${item.imageUrl}" alt="${item.productName}">
-              <div class="cart-item-details">
-                  <div class="cart-item-a">
-                      <span class="item-name">Product: ${item.productName}</span>
-                      <span class="item-price">₱${item.total}.00</span>
-                  </div>
-                  <span class="item-name">Category: ${item.category}</span>
-                  <div>Type: ${item.type}</div>
-                  <div>Style: ${item.style}</div>
-                  <div class="quantity-controls">
-                      <button onclick="decreaseCartQuantity(${index})">-</button>
-                      <input type="text" value="${item.quantity}" readonly>
-                      <button onclick="increaseCartQuantity(${index})">+</button>
-                       <button class="remove-item" onclick="removeFromCart(${index})">
-                  <img src="delete.png" alt="Delete">
-              </button>
-                  </div>
-              </div>
-          </div>
-      `;
-  });
-
-  totalPriceElement.textContent = `₱${totalPrice}.00`;
-}
-
-
-
-function removeFromCart(index) {
-  cartItems.splice(index, 1);
-  renderCartItems();
-}
-
-function increaseCartQuantity(index) {
-  cartItems[index].quantity++;
-  cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
-  renderCartItems();
-}
-
-function decreaseCartQuantity(index) {
-  if (cartItems[index].quantity > 1) {
-      cartItems[index].quantity--;
-      cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
-      renderCartItems();
-  }
-}
-</script>
-</body>
-</html>
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
+     function selectType(types) {
+     document.getElementById('selectedType').value = types;
+   }
+   
+   function selectStyle(style) {
+     document.getElementById('selectedStyle').value = style;
+   }
+   
+   function increaseQuantity() {
+     var quantity = document.getElementById('quantity');
+     quantity.value = parseInt(quantity.value, 10) + 1;
+   }
+   
+   function decreaseQuantity() {
+     var quantity = document.getElementById('quantity');
+     if (quantity.value > 1) {
+         quantity.value = parseInt(quantity.value, 10) - 1;
+     }
+   }
+   
+     let slideIndex = 1;
+     showSlides(slideIndex);
+   
+     function plusSlides(n) {
+         showSlides(slideIndex += n);
+     }
+   
+     function currentSlide(n) {
+         showSlides(slideIndex = n);
+     }
+   
+     function showSlides(n) {
+         let i;
+         let slides = document.getElementsByClassName("mySlides");
+         if (n > slides.length) { slideIndex = 1 }
+         if (n < 1) { slideIndex = slides.length }
+         for (i = 0; i < slides.length; i++) {
+             slides[i].style.display = "none";  
+         }
+         slides[slideIndex - 1].style.display = "block";  
+     }
+    
+     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+   
+   function toggleCart() {
+     const cartModal = document.getElementById("cartModal");
+     cartModal.classList.toggle("open");
+   }
+   
+   function addToCart() {
+     const productName = document.querySelector("input[name='product_name']").value;
+     const category = document.querySelector("input[name='category']").value;
+     const type = document.getElementById("selectedType").value;
+     const style = document.getElementById("selectedStyle").value;
+     const quantity = parseInt(document.getElementById("quantity").value, 10);
+     const price = parseInt(document.querySelector("input[name='price']").value, 10);
+     const total = price * quantity;
+     const imageUrl = document.querySelector(".mySlides img").src;
+   
+     cartItems.push({ productName, category, type, style, quantity, price, total, imageUrl });
+     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+   
+     renderCartItems();
+     toggleCart();
+   }
+   
+   function renderCartItems() {
+     const cartItemsContainer = document.getElementById("cartItems");
+     const totalPriceElement = document.getElementById("totalPrice");
+     let totalPrice = 0;
+   
+     cartItemsContainer.innerHTML = "";
+     cartItems.forEach((item, index) => {
+         totalPrice += item.total;
+         cartItemsContainer.innerHTML += `
+             <div class="cart-item">
+                 <img src="${item.imageUrl}" alt="${item.productName}">
+                 <div class="cart-item-details">
+                     <div class="cart-item-a">
+                         <span class="item-name">Product: ${item.productName}</span>
+                         <span class="item-price">₱${item.total}.00</span>
+                     </div>
+                     <span class="item-name">Category: ${item.category}</span>
+                     <div class="type">Type: ${item.type}</div>
+                     <div class="style">Style: ${item.style}</div>
+                     <div class="quantity-controls">
+                         <button onclick="decreaseCartQuantity(${index})">-</button>
+                         <input type="text" value="${item.quantity}" readonly>
+                         <button onclick="increaseCartQuantity(${index})">+</button>
+                          <button class="remove-item" onclick="removeFromCart(${index})">
+                     <img src="delete.png" alt="Delete">
+                 </button>
+                     </div>
+                 </div>
+             </div>
+         `;
+     });
+   
+     totalPriceElement.textContent = `₱${totalPrice}.00`;
+   }
+   function removeFromCart(index) {
+       cartItems.splice(index, 1);
+       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+       renderCartItems();
+     }
+   
+     function increaseCartQuantity(index) {
+       cartItems[index].quantity++;
+       cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+       localStorage.setItem("cartItems", JSON.stringify(cartItems));
+       renderCartItems();
+     }
+   
+     function decreaseCartQuantity(index) {
+       if (cartItems[index].quantity > 1) {
+         cartItems[index].quantity--;
+         cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+         localStorage.setItem("cartItems", JSON.stringify(cartItems));
+         renderCartItems();
+       }
+     }
+   
+     function checkout() {
+     
+       window.location.href = "checkout.html";
+     }
+   </script>
+   </body>
+   </html>

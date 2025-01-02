@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
+    <link rel="stylesheet" href="cart.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="products.html" class="navbar-brand" font-size="10px">Back to Products</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Your Cart</h1>
+        <div id="cartItems">
+        </div>
+        <div class="cart-summary">
+            <h4>Total:</h4>
+            <span id="totalPrice">₱0.00</span>
+        </div>
+        <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const cartItemsContainer = document.getElementById("cartItems");
+            const totalPriceElement = document.getElementById("totalPrice");
+            let totalPrice = 0;
+
+        
+            cartItems.forEach((item, index) => {
+                totalPrice += item.total;
+                const options = [
+                    item.category ? `<p>Category: ${item.category}</p>` : "",
+                    item.selectedOption ? `<p>Option: ${item.selectedOption}</p>` : "",
+                    item.variant ? `<p>Variant: ${item.variant}</p>` : "",
+                    item.size ? `<p>Size: ${item.size}</p>` : "",
+                    item.style ? `<p>Style: ${item.style}</p>` : "",
+                    item.type ? `<p>Type: ${ item.type}</p>` : "",
+                    item.selectedType ? `<p>Type: ${ item.selectedType}</p>` : "",
+                    item.selectedStyle ? `<p>Type: ${ item.selectedStyle}</p>` : "",
+                    item.sizes ? `<p>Sizes: ${item.sizes}</p>` : "",
+                    item.format ? `<p>Format: ${item.format}</p>` : "",
+                    item.print ? `<p>Print: ${item.print}</p>` : ""
+                ].join("");
+
+                cartItemsContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.imageUrl}" alt="${item.productName}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <h5>${item.productName}</h5>
+                            ${options}
+                            <p>Price: ₱${item.price}.00</p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-secondary" onclick="decreaseCartQuantity(${index})">-</button>
+                                <input type="text" value="${item.quantity}" readonly>
+                                <button class="btn btn-secondary" onclick="increaseCartQuantity(${index})">+</button>
+                                <button class="remove-item" onclick="removeFromCart(${index})">
+                                    <img src="delete.png" alt="Delete" height="18px" width="18px">
+                                </button>
+                                 </div>
+                            <p>Total: ₱${item.total}.00</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalPriceElement.textContent = `₱${totalPrice}.00`;
+
+            window.increaseCartQuantity = function (index) {
+                cartItems[index].quantity++;
+                cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                location.reload();
+            };
+
+            window.decreaseCartQuantity = function (index) {
+                if (cartItems[index].quantity > 1) {
+                    cartItems[index].quantity--;
+                    cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                    location.reload();
+                }
+            };
+
+            window.removeFromCart = function (index) {
+                cartItems.splice(index, 1);
+                localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                location.reload();
+            };
+
+            window.checkout = function () {
+                alert("Proceeding to checkout...");
+                window.location.href = "checkout.html";
+            };
+        });
+    </script>
+</body>
+</html>

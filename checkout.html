@@ -6,7 +6,7 @@
     <title>Check Out</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="checkout.css">
-    <!-- Bootstrap CSS -->
+  
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <header>
@@ -17,169 +17,184 @@
         <div class="header">
             <h1>LAAVAAPRINT</h1>
             <h4>SOLUTIONS</h4>
-           </div>
+        </div>
         <div class="icons">
-            <a href="checkout.html"><img src="user.png" alt="User"height="24"></a>
+            <a href="cart.html"><img src="cart.png" alt="User" height="30"></a>
         </div>
     </div>
-          
     <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h2>Contact</h2>
-                    <input placeholder="Email" type="email" class="form-control mb-2" />
-                    <div class="form-check">
-                        <input checked type="checkbox" class="form-check-input" />
-                        <label class="form-check-label">Email me with news and offers</label>
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Contact</h2>
+                <input placeholder="Email" type="email" class="form-control mb-2" required/>
+                <div class="form-check">
+                    <input checked type="checkbox" class="form-check-input" />
+                    <label class="form-check-label">Email me with news and offers</label>
+                </div>
+                <h2>Delivery</h2>
+                <select class="form-control mb-2">
+                    <option>Philippines</option>
+                </select>
+                <div class="form-row">
+                    <div class="col">
+                        <input placeholder="First name" type="text" class="form-control mb-2" required/>
                     </div>
-                    <h2>Delivery</h2>
-                    <select class="form-control mb-2">
-                        <option>Philippines</option>
-                    </select>
-        
-                    <div class="form-row">
-                        <div class="col">
-                            <input placeholder="First name" type="text" class="form-control mb-2" />
-                        </div>
-                        <div class="col">
-                            <input placeholder="Last name" type="text" class="form-control mb-2" />
+                    <div class="col">
+                        <input placeholder="Last name" type="text" class="form-control mb-2" required />
+                    </div>
+                </div>
+                <input placeholder="Address" type="text" class="form-control mb-2" required/>
+                <input placeholder="Barangay" type="text" class="form-control mb-2" required/>
+                <div class="form-row">
+                    <div class="col">
+                        <input placeholder="Postal code" type="text" class="form-control mb-2" required/>
+                    </div>
+                    <div class="col">
+                        <input placeholder="City" type="text" class="form-control mb-2" required/>
+                    </div>
+                </div>
+                <select class="form-control mb-2">
+                    <option>Region</option>
+                    <option>Catholic</option>
+                    <option>Iglesia ni Cristo</option>
+                    <option>Born again</option>
+                </select>
+                <input placeholder="Phone" type="number" class="form-control mb-2" required/>
+                <div class="checkbox">
+                    <input type="checkbox" />
+                    <label>Save this information for next time</label>
+                </div>
+                <h2>Shipping method</h2>
+                <div class="shipping-method">
+                    Enter your shipping address to view available shipping methods.
+                </div>
+                <div class="billing-section">
+                    <h2>Payment</h2>
+                    <p>All transactions are secured and encrypted.</p>
+                    <div class="billing-option">
+                        <label>
+                            <input name="payment" type="radio" value="paymongo" />
+                            Secure Payments via PayMongo
+                            <img alt="Mastercard logo" height="20" src="https://i.pinimg.com/736x/56/fd/48/56fd486a48ff235156b8773c238f8da9.jpg" width="20"/>
+                            <img alt="Visa logo" height="20" src="https://download.logo.wine/logo/Visa_Inc./Visa_Inc.-Logo.wine.png" width="20" />
+                            <img alt="Grab logo" height="16" src="https://1000logos.net/wp-content/uploads/2022/08/Grab-Logo.png" width="20"/>
+                            +8
+                        </label>
+                    
+                    </div>
+                    <div class="billing-option">
+                        <label>
+                            <input checked name="payment" type="radio" value="cod" />
+                            Cash on Delivery (COD)
+                        </label>
+                        <div class="cod-description">
+                            Lets you pay for your order upon delivery, providing the convenience of paying only when you receive the item.
+                            <br>
+                            This option is available for local deliveries but is not applicable for international orders.
                         </div>
                     </div>
-        
-                    <input placeholder="Address" type="text" class="form-control mb-2" />
-                    <input placeholder="Barangay" type="text" class="form-control mb-2" />
-        
-                    <div class="form-row">
-                        <div class="col">
-                            <input placeholder="Postal code" type="text" class="form-control mb-2" />
-                        </div>
-                        <div class="col">
-                            <input placeholder="City" type="text" class="form-control mb-2" />
-                        </div>
+                </div>
+                <div class="billing-section">
+                    <h2>Billing address</h2>
+                    <div class="billing-option">
+                        <label>
+                            <input checked name="billing" type="radio" value="same" />
+                            Same as shipping address
+                        </label>
                     </div>
-                    <select class="form-control mb-2">
-                        <option>Region</option>
-                        <option>Catholic</option>
-                        <option>Iglesia ni Cristo</option>
-                        <option>Born again</option>
-                    </select>
-        
-         <input placeholder="Phone" type="numbers" class="form-control mb-2" />
-         
-         <div class="checkbox">
-          <input type="checkbox"/>
-          <label>Save this information for next time</label>
-        </div>
-         <h2>Shipping method</h2>
-
-         <div class="shipping-method">
-          Enter your shipping address to view available shipping methods.
-         </div>
-        
-           <div class="billing-section">
-            <h2>
-             Payment
-            </h2>
-            <p>
-                All transactions are secured and encrypted.
-               </p>
-            <div class="billing-option">
-                <label>
-                    <input name="payment" type="radio" value="paymongo"/>
-                    Secure Payments via PayMongo
-                    <img alt="Mastercard logo" height="20" src="https://storage.googleapis.com/a1aa/image/3BbIHRlmFobGEV4r5iqhPfIpYn74Ieq1xD15p903rwyaW3vTA.jpg" width="20"/>
-                    <img alt="Visa logo" height="20" src="https://storage.googleapis.com/a1aa/image/Leju2cFjwa3FSyYpY1ZAa3aJr5OGoD6DkkBoGB0iAgMMr73JA.jpg" width="20"/>
-                    <img alt="Grab logo" height="20" src="https://storage.googleapis.com/a1aa/image/hpKyvdUBKgJsApMfQVCIz49HesKzd1tY1CDDSvgYuVKWW3vTA.jpg" width="20"/>
-                    <img alt="Other payment logo" height="20" src="https://storage.googleapis.com/a1aa/image/qTCcMCXiMsaPKNhxCAxYNIa9kwsfOOdLe80LSbbXneVusufOB.jpg" width="20"/>
-                   </label>
-                  </div>
+                    <div class="billing-option">
+                        <label>
+                            <input name="billing" type="radio" value="different" />
+                            Use a different billing address
+                        </label>
+                    </div>
+                </div>
             </div>
-            <div class="billing-option">
-                <label>
-                    <input checked="" name="payment" type="radio" value="cod"/>
-                    Cash on Delivery (COD)
-                   </label>
-                   
-                <div class="cod-description">
-                 Lets you pay for your order upon delivery, providing the convenience of paying only when you receive the item.
-                 <br>
-                 This option is available for local deliveries but is not applicable for international orders.
+                        <div class="col-md-4">
+                        <h2>Your Order</h2>
+                        <div id="orderDetails" class="order-section"></div>
+                        <h3>Total: <span id="totalAmount">₱0.00</span></h3>
+                </div>
+                <div class="col-md-4">
+                    <button id= "buttoncomplete" class="complete-order-btn" onclick="completeOrder()">Complete Order</button>
+                </div>
             </div>
-           </div>
-
-
-          <div class="billing-section">
-           <h2>
-            Billing address
-           </h2>
-           <div class="billing-option">
-            <label>
-             <input checked="" name="billing" type="radio" value="same"/>
-             Same as shipping address
-            </label>
-           </div>
-           <div class="billing-option">
-            <label>
-             <input name="billing" type="radio" value="different"/>
-             Use a different billing address
-            </label>
-           </div>
-          </div>
-          <a class="complete-order-btn" href="#">
-           Complete order
-          </a>
-          <div class="footer">
-            All rights reserved LAAVAAPRINT SOLUTIONS!
-           </div>
         </div>
-        
-        
-        <div class="right">
-         <div class="product">
-          <img alt="Name Keychain" height="50" src="https://storage.googleapis.com/a1aa/image/hSp87APEkS67OZhojjI8THKsMEUTrROpdJPfRgmmSNGn863JA.jpg" width="50"/>
-          <div class="product-details">
-           <div>
-            Name Keychain
-           </div>
-           <div>
-            EMBROIDERED, NAME, STYLE 2
-           </div>
-          </div>
-          <div class="product-price">
-           ₱250.00
-          </div>
-         </div>
-         <div class="subtotal">
-          <div>
-           Subtotal
-          </div>
-          <div>
-           ₱250.00
-          </div>
-         </div>
-         <div class="shipping">
-          <div>
-           Shipping
-          </div>
-          <div>
-           ₱130.00
-          </div>
-         </div>
-         <div class="total">
-          <div>
-           Total
-          </div>
-          <div>
-           ₱380.00
-          </div>
-         </div>
-        </div>
-    </div>
-</div>
-       </div>
-       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</main>
+<footer class="footer">
+    All rights reserved LAAVAAPRINT SOLUTIONS!
+</footer>
 
-      </body>
-     </html>     
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const orderDetails = document.getElementById("orderDetails");
+            const totalAmount = document.getElementById("totalAmount");
+    
+            if (cartItems.length === 0) {
+                orderDetails.innerHTML = "<p>Your cart is empty. Please add products to your cart.</p>";
+                return;
+            }
+    
+            let subtotal = 0;
+            orderDetails.innerHTML = cartItems.map(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+    
+                const categoryField = item.category ? `<p>Category: ${item.category}</p>` : "";
+                const printField = item.print ? `<p>Print: ${item.print}</p>` : "";
+                const selectedOptionField= item.selectedOption ? `<p>Option: ${item.selectedOption}</p>` : "";
+                const variantField = item.variant ? `<p>Variant: ${item.variant}</p>` : "";
+                const typeField = item.type ? `<p>Type: ${item.type}</p>` : "";
+                const selectedFormatField = item.format ? `<p>Format: ${item.format}</p>` : "";
+                const selectedSizesField = item.sizes ? `<p>Sizes: ${item.sizes}</p>` : "";
+                const styleField = item.style ? `<p>Style: ${item.style}</p>` : "";
+                const sizeField = item.size ? `<p>Size: ${item.size}</p>` : "";
+               
+                return `
+                    <div class="product">
+                        <img src="${item.imageUrl}" alt="${item.productName}" height="200" width="120">
+                        <div class="product-details">
+                            <p><strong>${item.productName}</strong></p>
+                            ${categoryField}
+                            ${printField}
+                            ${selectedOptionField}
+                            ${variantField}
+                            ${typeField}
+                            ${selectedFormatField}
+                             ${selectedSizesField}
+                            ${styleField}
+                            ${sizeField}
+                            <p>Quantity: ${item.quantity}</p>
+                            <p>Price: ₱${item.price} x ${item.quantity} = ₱${itemTotal}</p>
+                        </div>
+                    </div>
+                    <hr>
+                `;
+            }).join("");
+    
+            const shippingFee = 100; 
+            const total = subtotal + shippingFee;
+    
+            orderDetails.innerHTML += `
+                <div class="summary">
+                    <p>Subtotal: ₱${subtotal}.00</p>
+                    <p>Shipping: ₱${shippingFee}.00</p>
+                </div>
+            `;
+    
+            totalAmount.textContent = `₱${total}.00`;
+        });
+    
+        function completeOrder() {
+            localStorage.removeItem("cartItems");
+            alert("Order Completed, Thank you for purchasing the products!");
+            window.location.href = "products.html"; 
+        }
+    </script>
+    
+</body>
+</html>

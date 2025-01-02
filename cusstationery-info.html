@@ -5,7 +5,7 @@
     <title>Products</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="cusstationery-info.css">
-    <!-- Bootstrap CSS -->
+  
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 
@@ -17,252 +17,352 @@
             <img src="logo2.png" alt="LaavaaPrint Logo">
         </div>
         <div class="icons">
-            <a href="#"><img src="search.png"alt="Search" height="24"></a>
-            <a href="cart.html"><img src="cart.png"alt="Cart" height="28"></a> 
-            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
+            <a href="cart.html" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
+            <a href="javascript:void(0);" onclick="logout()"><img src="user.png" alt="User" height="24"></a>
+        </div>
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
+            <button onclick="performSearch()">Search</button>
         </div>
     </div>
         <div class="black-bar">
         <div class="menu">
-                <a class="active" href="products.html">PRODUCTS</a>
-                <a href="services.html">SERVICES</a>
+                <a href="products.html">PRODUCTS</a>
+                <a class="active" href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
                 <a href="contact.html">CONTACT</a>
             </div>
         </div>
-        </header>
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="menus" id="menus">
+            <div class="close-icon" onclick="closeMenu()">X</div>
+            <a href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a class="active"  href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+        <div class="items" id="items">
+            <div class="item" data-name="Business Cards" data-url="businesscard-info.html"></div>
+            <div class="item" data-name="Flyers and Brochures" data-url="flybro-info.html"></div>
+            <div class="item" data-name="Posters and Banners" data-url="posban-info.html"></div>
+            <div class="item" data-name="Sign and Signage" data-url="sign-info.html"></div>
+            <div class="item" data-name="Promotional Items" data-url="keychain-info.html"></div>
+            <div class="item" data-name="Booklets and Catalogs" data-url="bookcat-info.html"></div>
+            <div class="item" data-name="Custom Stationery" data-url="cusstationery-info.html"></div>
+            <div class="item" data-name="Invitations and Greeting Cards" data-url="inv-info.html"></div>
+            <div class="item" data-name="Pens" data-url="pro-pens.html"></div>
+            <div class="item" data-name="Mugs" data-url="pro-mugs.html"></div>
+            <div class="item" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
+            <div class="item" data-name="Jerseys" data-url="pro-jerseys.html"></div>
+            <div class="item" data-name="Keychains" data-url="pro-keychains.html"></div>
+            <div class="item" data-name="Calendars" data-url="pro-calendars.html"></div>
+            <div class="item" data-name="Lanyards" data-url="pro-lanyards.html"></div>
+            <div class="item" data-name="Tote Bags" data-url="pro-totebag.html"></div>
+      </div>
+      
+         <div class="search-results" id="searchResults"></div>
+      
+      </header>
 
   <div class="container">
-    <div class="product-image">
+    <div class="mySlides">
+    <div class="mySlides1">
      <img src="stationery-letterhead.png" alt="Stationery"/>
     </div>
+
     <div class="product-details">
-     <h1>
-      Custom Stationery
-     </h1>
-     <div class="price">
-      ₱50 - ₱150
-     </div>
-     <p>
-      A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
-     </p>
-     <div class="options">
+     <h1>Custom Stationery - LETTERHEAD</h1>
+     <div class="price">₱500.00</div>
+     <p>Custom letterheads that enhance your brand’s professional image. High-quality paper with personalized designs for all business correspondence.</p>
+     <form id="productForm1">
 
-        <label>Style</label>      
-        <button>LETTERHEAD</button>
-     </div>
      <div class="options">
-         <label for="option1">Sizes</label>
-         <button id="option1">HALF-LETTER (5.5” X 8.5”)</button>
-         <button id="option2">HALF-LETTER (5.5” X 8.5”)</button>
-         <button id="option3">HALF-LETTER (5.5” X 8.5”)</button>
-         <button id="option4">LEGAL (8.5” X 14”)</button>
-         <button id="option5">TABLOID (11” X 17”)</button>
-     </div>
-     <div class="quantity">
-      <label>
-       Quantity
-      </label>  
-         <button onclick="decreaseQuantity()">
-          -
-         </button>
-         <input id="quantity" type="text" value="1"/>
-         <button onclick="increaseQuantity()">
-          +
-         </button>
+         <label>Sizes</label>
+         <button type="button" onclick="selectOption (1, 'HALFLETTER - 5.5” X 8.5”')">HALF (5.5” X 8.5”)</button>
+         <button type="button" onclick="selectOption (1, 'LEGAL - 8.5” X 14”')">LEGAL (8.5” X 14”)</button>
+         <button type="button" onclick="selectOption (1, 'TABLOID - 11” X 17”')">TABLOID (11” X 17”)</button>
+         <input type="hidden" id="selectedOption1" name="sizes">
         </div>
-     <button class="add-to-cart">
-      ADD TO CART</button>
-
-    </div>
+     
+        <div class="quantity">
+          <label>Quantity</label>
+          <button type="button" onclick="adjustQuantity(1, -1)">-</button>
+          <input id="quantity1" name="quantity" type="text" value="10">
+          <button type="button" onclick="adjustQuantity(1, 1)">+</button>
+      </div>
+      <button type="button" class="add-to-cart" onclick="addToCart(1, 'Custom Stationery-LETTERHEAD', 500, 'stationery-letterhead.png')">ADD TO CART</button>
+  </form>
+</div>
 </div>
 
-      <div class="container">
-        <div class="product-image">
+        <div class="mySlides">
+        <div class="mySlides2">
          <img src="sta-envelops.png" alt="Stationery"/>
         </div>
+   
         <div class="product-details">
-         <h1>
-          Custom Stationery
-         </h1>
-         <div class="price">
-          ₱50 - ₱150
-         </div>
-         <p>
-          A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
-         </p>
-         <div class="options">
+         <h1>Custom Stationery - ENVELOPES</h1>
+         <div class="price">₱200.00</div>
+         <p>Custom envelopes designed to match your branding. Durable, high-quality paper for sending your documents in style.</p>
+         <form id="productForm2">
     
-            <label>Style</label>
-            <button>ENVELOPES</button>
-         </div>
          <div class="options">
-             <label for="option1">Type</label>
-             <button id="option1">BARONIAL</button>
-             <button id="option2">A-STYLE</button>
-             <button id="option3">SQUARE</button>
-             <button id="option4">COMMERCIAL</button>
-             <button id="option5">BOOKLET</button>
-             <button id="option5">CATALOG</button>
-             <button id="option5">CLASP CLOSURE</button>
-             <button id="option5">WINDOW</button>
-             <button id="option5">MINI</button>
-
+             <label>Type</label>
+             <button type="button" onclick="selectOption (2, 'BARONIAL')">BARONIAL</button>
+             <button type="button" onclick="selectOption (2, 'A-STYLE')">A-STYLE</button>
+             <button type="button" onclick="selectOption (2, 'SQUARE')">SQUARE</button>
+             <button type="button" onclick="selectOption (2, 'COMMERCIAL')">COMMERCIAL</button>
+             <button type="button" onclick="selectOption (2, 'BOOKLET')">BOOKLET</button>
+             <button type="button" onclick="selectOption (2, 'CATALOG')">CATALOG</button>
+             <button type="button" onclick="selectOption (2, 'CLASP CLOSURE')">CLASP CLOSURE</button>
+             <button type="button" onclick="selectOption (2, 'WINDOW')">WINDOW</button>
+             <button type="button" onclick="selectOption (2, 'MINI')">MINI</button>
+             <input type="hidden" id="selectedOption2" name="type">
          </div>
-         <div class="quantity">
-          <label>
-           Quantity
-          </label>  
-             <button onclick="decreaseQuantity()">
-              -
-             </button>
-             <input id="quantity" type="text" value="1"/>
-             <button onclick="increaseQuantity()">
-              +
-             </button>
-            </div>
-         <button class="add-to-cart">
-          ADD TO CART</button>
-        
-    </div>
-   </div>
 
-   <div class="container">
-    <div class="product-image">
+         <div class="quantity">
+          <label>Quantity</label>
+          <button type="button" onclick="adjustQuantity(2, -1)">-</button>
+          <input id="quantity2" name="quantity" type="text" value="10">
+          <button type="button" onclick="adjustQuantity(2, 1)">+</button>
+      </div>
+        <button type="button"  class="add-to-cart" onclick="addToCart(2, 'Custom Stationery-ENVELOPES', 200, 'sta-envelops.png')">ADD TO CART</button>
+    
+    </form>
+    </div>
+</div>
+
+    <div class="mySlides">
+    <div class="mySlides3">
      <img src="sta-wove.png" alt="Stationery"/>
     </div>
+
     <div class="product-details">
-     <h1>
-      Custom Stationery
-     </h1>
-     <div class="price">
-      ₱50 - ₱150
-     </div>
-     <p>
-      A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
-     </p>
-     <div class="options">
+     <h1>Custom Stationery - PAPER</h1>
+     <div class="price">₱400.00</div>
+     <p>Premium custom paper for your business needs. High-quality and versatile, perfect for printing, letterheads, and promotional materials.</p>
+     <form id="productForm3">
 
-        <label>Style</label>
-        <button>PAPER</button>
-     </div>
      <div class="options">
-         <label for="option1">Type</label>
-         <button id="option1">WOVE</button>
-         <button id="option3">KRAFT</button>
-         <button id="option4">RECYCLED</button>
-         <button id="option5">SPECIALTY</button>
-         <button id="option5">TEAR-RESISTANT</button>
-
+         <label>Type</label>
+         <button type="button" onclick="selectOption (3, 'WOVE')">WOVE</button>
+         <button type="button" onclick="selectOption (3, 'KRAFT')">KRAFT</button>
+         <button type="button" onclick="selectOption (3, 'RECYCLED')">RECYCLED</button>
+         <button type="button" onclick="selectOption (3, 'SPECIALTY')">SPECIALTY</button>
+         <button type="button" onclick="selectOption (3, 'TEAR-RESISTANT')">TEAR-RESISTANT</button>
+         <input type="hidden" id="selectedOption3" name="type">
      </div>
+
      <div class="quantity">
-      <label>
-       Quantity
-      </label>  
-         <button onclick="decreaseQuantity()">
-          -
-         </button>
-         <input id="quantity" type="text" value="1"/>
-         <button onclick="increaseQuantity()">
-          +
-         </button>
-        </div>
-     <button class="add-to-cart">
-      ADD TO CART</button>
+      <label>Quantity</label>
+      <button type="button" onclick="adjustQuantity(3, -1)">-</button>
+      <input id="quantity3" name="quantity" type="text" value="10">
+      <button type="button" onclick="adjustQuantity(3, 1)">+</button>
+  </div>
+    <button type="button"  class="add-to-cart" onclick="addToCart(3, 'Custom Stationery - PAPER', 400, 'sta-wove.png')">ADD TO CART</button>
+
+    </form>
 </div>
 </div>
 
-<div class="container">
-    <div class="product-image">
+    <div class="mySlides">
+    <div class="mySlides4">
      <img src="sta-notepad.png" alt="Stationery"/>
     </div>
+
     <div class="product-details">
-     <h1>
-      Custom Stationery
-     </h1>
-     <div class="price">
-      ₱50 - ₱150
-     </div>
-     <p>
-      A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
-     </p>
+     <h1>Custom Stationery</h1>
+     <div class="price">₱200.00</div>
+     <p>Premium custom stationery that adds a personal touch to your brand. Quality paper, envelopes, and letterheads for professional business use.</p>
+     <form id="productForm4">
+
      <div class="options">
-
         <label>Style</label>
-        <button>NOTEPADS</button>
-        <button>STICKY NOTES</button>
-        <button>WRITING PADS</button>
-        <button>BUSINESS ENVELOPES</button>
+        <button type="button" onclick="selectOption (4, 'NOTEPADS')">NOTEPADS</button>
+        <button type="button" onclick="selectOption (4, 'STICKY NOTES')">STICKY NOTES</button>
+        <button type="button" onclick="selectOption (4, 'WRITING PADS')">WRITING PADS</button>
+        <button type="button" onclick="selectOption (4, 'ENVELOPES')">ENVELOPES</button>
+        <input type="hidden" id="selectedOption4" name="style">
      </div>
+     
      <div class="quantity">
-      <label>
-       Quantity
-      </label>  
-         <button onclick="decreaseQuantity()">
-          -
-         </button>
-         <input id="quantity" type="text" value="1"/>
-         <button onclick="increaseQuantity()">
-          +
-         </button>
-        </div>
-     <button class="add-to-cart">
-      ADD TO CART</button>
+      <label>Quantity</label>
+      <button type="button" onclick="adjustQuantity(4, -1)">-</button>
+      <input id="quantity4" name="quantity" type="text" value="10">
+      <button type="button" onclick="adjustQuantity(4, 1)">+</button>
+  </div>
+    <button  type="button"  class="add-to-cart" onclick="addToCart(4, 'Custom Stationery', 200, 'sta-notepad.png')">ADD TO CART</button>
+
+    </form>
 </div>
 </div>
-        <!-- Bootstrap JS and dependencies (optional) -->
+</div>
+<div id="cartModal" class="cart-modal">
+  <div class="cart-modal-content">
+      <span class="close" onclick="toggleCart()">X</span>
+      <h1>Your Cart</h1>
+      <h4>PRODUCT TOTAL</h4>
+      <div id="cartItems"></div>
+      <div class="cart-total">
+          <span>Subtotal:</span>
+          <span id="totalPrice">₱0.00</span>
+      </div>
+      <button onclick="checkout()" class="checkout-btn">Check out</button>
+  </div>
+</div>
+
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-        <script>
-        // Toggle the sidebar and maximize content
-            document.getElementById('toggleSidebar').addEventListener('click', function () {
-    var sidebar = document.getElementById('sidebar');
-    var content = document.getElementById('content');
-    var items = document.querySelector('.items');
+    </script>
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+          const optionButtons = document.querySelectorAll(".product-details .options button");
+    
+          optionButtons.forEach(button => {
+              button.addEventListener("click", function () {
+                  const buttonsInGroup = this.parentNode.querySelectorAll("button");
+    
+                  buttonsInGroup.forEach(btn => {
+                      btn.classList.remove("active-style");
+                  });
+    
+                  this.classList.add("active-style");
+              });
+          });
+      });
+      function toggleSearch() {
+          const searchBar = document.getElementById('searchBar');
+          searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
+      }
+    
+      function handleEnter(event) {
+          if (event.key === 'Enter') {
+              performSearch();
+          }
+      }
+    
+      function performSearch() {
+          const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+          const items = document.querySelectorAll('.item');
+    
+       
+          let foundUrl = null;
+          items.forEach(item => {
+              const itemName = item.getAttribute('data-name').toLowerCase();
+              const itemUrl = item.getAttribute('data-url');
+              if (itemName === searchQuery) {
+                  foundUrl = itemUrl;
+              }
+          });
+    
+    
+          if (foundUrl) {
+              window.location.href = foundUrl;
+          } else {
+              alert(`No results found for "${searchQuery}"`);
+          }
+      }
+      function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
 
-    // Toggle the collapsed state for the sidebar
-    sidebar.classList.toggle('collapsed');
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
 
-    // Toggle the maximized state for the content
-    content.classList.toggle('maximized');
-});
+      let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all buttons for Type and Style options
-    const optionButtons = document.querySelectorAll(".product-details .options button");
+function toggleCart() {
+    const cartModal = document.getElementById("cartModal");
+    cartModal.classList.toggle("open");
+}
 
-    optionButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            // Remove active class from all buttons in the current options group
-            const buttonsInGroup = this.parentNode.querySelectorAll("button");
+function selectOption(productId, optionValue) {
+    document.getElementById(`selectedOption${productId}`).value = optionValue;
+}
 
-            buttonsInGroup.forEach(btn => {
-                btn.classList.remove("active-style");  // Remove the 'active-style' class
-            });
+function adjustQuantity(productId, change) {
+    const quantityInput = document.getElementById(`quantity${productId}`);
+    const currentQuantity = parseInt(quantityInput.value, 10);
+    const newQuantity = currentQuantity + change;
+    if (newQuantity > 0) {
+        quantityInput.value = newQuantity;
+    }
+}
 
-            // Add active-style class to the clicked button
-            this.classList.add("active-style");
-        });
+function addToCart(productId, productName, price, imageUrl) {
+    const quantity = parseInt(document.getElementById(`quantity${productId}`).value, 10);
+    const selectedOption = document.getElementById(`selectedOption${productId}`).value;
+    const total = price * quantity;
+
+    cartItems.push({ productId, productName, selectedOption, quantity, price, total, imageUrl });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCartItems();
+    toggleCart();
+}
+
+function renderCartItems() {
+    const cartItemsContainer = document.getElementById("cartItems");
+    const totalPriceElement = document.getElementById("totalPrice");
+    let totalPrice = 0;
+
+    cartItemsContainer.innerHTML = "";
+    cartItems.forEach((item, index) => {
+        totalPrice += item.total;
+        cartItemsContainer.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.imageUrl}" alt="${item.productName}">
+                <div class="cart-item-details">
+                    <span class="item-name">${item.productName}</span>
+                    <br>
+                    <span class="style">Option: ${item.selectedOption}</span>
+                    <br>
+                    <span class="item-price">₱${item.total}.00</span>
+                    <div class="quantity-controls">
+                        <button onclick="adjustCartQuantity(${index}, -1)">-</button>
+                        <input type="text" value="${item.quantity}" readonly>
+                        <button onclick="adjustCartQuantity(${index}, 1)">+</button>
+                        <button class="remove-item" onclick="removeFromCart(${index})">
+                  <img src="delete.png" alt="Delete">
+              </button>
+                        </div>
+                </div>
+            </div>
+        `;
     });
-});
 
-function increaseQuantity() {
-    var quantity = document.getElementById('quantity');
-    var value = parseInt(quantity.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value++;
-    quantity.value = value;
+    totalPriceElement.textContent = `₱${totalPrice}.00`;
 }
 
-function decreaseQuantity() {
-    var quantity = document.getElementById('quantity');
-    var value = parseInt(quantity.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value < 1 ? value = 1 : '';
-    value--;
-    quantity.value = value;
+function adjustCartQuantity(index, change) {
+    const item = cartItems[index];
+    item.quantity += change;
+    if (item.quantity <= 0) {
+        removeFromCart(index);
+    } else {
+        item.total = item.price * item.quantity;
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+        renderCartItems();
+    }
 }
 
+function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCartItems();
+}
+function checkout() {
+     
+       window.location.href = "checkout.html";
+     }
+     function logout() {
+            const userConfirmed = window.confirm("Are you sure you want to logout?");
+            if (userConfirmed) {
+          
+                window.location.href = "front.html";
+            }
+        }
 </script>
 </body>
-</html> 
+</html>

@@ -5,7 +5,7 @@
     <title>Products</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="acrylic-info.css">
-    <!-- Bootstrap CSS -->
+ 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 </head>
@@ -16,9 +16,9 @@
             <img src="logo2.png" alt="LaavaaPrint Logo">
         </div>
         <div class="icons">
-            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
-            <a href="#" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
-            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="23"></a>
+            <a href="cart.html" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
+            <a href="javascript:void(0);" onclick="logout()"><img src="user.png" alt="User" height="24"></a>
         </div>
         <div class="search-bar" id="searchBar">
             <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
@@ -27,23 +27,33 @@
     </div>
     </div>
         <div class="black-bar">
-        <div class="menu">
+            <div class="menu">
                 <a class="active" href="products.html">PRODUCTS</a>
                 <a href="services.html">SERVICES</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
             </div>
         </div>
-        <!-- Items Section with URLs -->
+
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="menus" id="menus">
+            <div class="close-icon" onclick="closeMenu()">X</div>
+            <a href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a class="active"  href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+     
         <div class="items" id="items">
-            <div class="item" data-name="Business Cards" data-url="business-cards.html"></div>
-            <div class="item" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
-            <div class="item" data-name="Posters and Banners" data-url="posters-banners.html"></div>
-            <div class="item" data-name="Sign and Signage" data-url="sign-signage.html"></div>
-            <div class="item" data-name="Promotional Items" data-url="promotional-items.html"></div>
-            <div class="item" data-name="Booklets and Catalogs" data-url="booklets-catalogs.html"></div>
-            <div class="item" data-name="Custom Stationery" data-url="custom-stationery.html"></div>
-            <div class="item" data-name="Invitations and Greeting Cards" data-url="invitations-greeting-cards.html"></div>
-            <div class="item" data-name="Packaging Materials" data-url="packaging-materials.html"></div>
-            <div class="item" data-name="Pens" data-url="pen-info.php"></div>
+            <div class="item" data-name="Business Cards" data-url="businesscard-info.html"></div>
+            <div class="item" data-name="Flyers and Brochures" data-url="flybro-info.html"></div>
+            <div class="item" data-name="Posters and Banners" data-url="posban-info.html"></div>
+            <div class="item" data-name="Sign and Signage" data-url="sign-info.html"></div>
+            <div class="item" data-name="Promotional Items" data-url="keychain-info.html"></div>
+            <div class="item" data-name="Booklets and Catalogs" data-url="bookcat-info.html"></div>
+            <div class="item" data-name="Custom Stationery" data-url="cusstationery-info.html"></div>
+            <div class="item" data-name="Invitations and Greeting Cards" data-url="inv-info.html"></div>
+            <div class="item" data-name="Pens" data-url="pro-pens.html"></div>
             <div class="item" data-name="Mugs" data-url="pro-mugs.html"></div>
             <div class="item" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
             <div class="item" data-name="Jerseys" data-url="pro-jerseys.html"></div>
@@ -100,9 +110,9 @@
                 </div>
    <div class="product-details">
     <h1>ACRYLIC</h1>
-    <div class="price">₱50 - ₱150</div>
+    <div class="price">₱467.00</div>
     <p>
-     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
+     A vibrant, personalized keychain featuring beautifully acrylic names, perfect for adding a colorful touch to your accessories.
     </p>
     <form id="productForm">
     <div class="options">
@@ -130,22 +140,21 @@
         <div class="quantity">
             <label>Quantity</label>
             <button type="button" onclick="decreaseQuantity()">-</button>
-            <input id="quantity" name="quantity" type="text" value="1" readonly>
+            <input id="quantity" name="quantity" type="text" value="15">
             <button type="button" onclick="increaseQuantity()">+</button>
         </div>
     
         <input type="hidden" name="product_name" value="Keychain">
-        <input type="hidden" name="price" value="50"> 
+        <input type="hidden" name="price" value="467"> 
         <input type="hidden" name="category" value="Acrylic">
         <button type="button" class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
     </form>
 </div>
 </div>
 
-<!-- Cart Modal -->
 <div id="cartModal" class="cart-modal">
     <div class="cart-modal-content">
-        <span class="close" onclick="toggleCart()">&times;</span>
+        <span class="close" onclick="toggleCart()">X</span>
         <h1>Your Cart</h1>
         <h4>PRODUCT TOTAL</h4>
         <div id="cartItems"></div>
@@ -153,11 +162,12 @@
             <span>Subtotal:</span>
             <span id="totalPrice">₱0.00</span>
         </div>
-        <button class="checkout-btn">Check out</button>
+       <button onclick="checkout()" class="checkout-btn">Check out</button>
+
     </div>
 </div>
 
-  <!-- Bootstrap JS and dependencies (optional) -->
+ 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
 </script>
 <script>
@@ -176,6 +186,13 @@
           });
       });
   });
+  function logout() {
+            const userConfirmed = window.confirm("Are you sure you want to logout?");
+            if (userConfirmed) {
+   
+                window.location.href = "front.html";
+            }
+        }
   function toggleSearch() {
       const searchBar = document.getElementById('searchBar');
       searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
@@ -191,7 +208,7 @@
       const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
       const items = document.querySelectorAll('.item');
 
-      // Check for an exact match and redirect if found
+ 
       let foundUrl = null;
       items.forEach(item => {
           const itemName = item.getAttribute('data-name').toLowerCase();
@@ -201,13 +218,20 @@
           }
       });
 
-      // Redirect if a match is found
       if (foundUrl) {
           window.location.href = foundUrl;
       } else {
           alert(`No results found for "${searchQuery}"`);
       }
   }
+
+  function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
+
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
   function selectType(types) {
   document.getElementById('selectedType').value = types;
 }
@@ -250,7 +274,7 @@ function decreaseQuantity() {
       slides[slideIndex - 1].style.display = "block";  
   }
  
-  let cartItems = [];
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 function toggleCart() {
   const cartModal = document.getElementById("cartModal");
@@ -268,6 +292,8 @@ function addToCart() {
   const imageUrl = document.querySelector(".mySlides img").src;
 
   cartItems.push({ productName, category, type, style, quantity, price, total, imageUrl });
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
   renderCartItems();
   toggleCart();
 }
@@ -289,8 +315,8 @@ function renderCartItems() {
                       <span class="item-price">₱${item.total}.00</span>
                   </div>
                   <span class="item-name">Category: ${item.category}</span>
-                  <div>Type: ${item.type}</div>
-                  <div>Style: ${item.style}</div>
+                  <div class="type">Type: ${item.type}</div>
+                  <div class="style">Style: ${item.style}</div>
                   <div class="quantity-controls">
                       <button onclick="decreaseCartQuantity(${index})">-</button>
                       <input type="text" value="${item.quantity}" readonly>
@@ -306,27 +332,32 @@ function renderCartItems() {
 
   totalPriceElement.textContent = `₱${totalPrice}.00`;
 }
-
-
-
 function removeFromCart(index) {
-  cartItems.splice(index, 1);
-  renderCartItems();
-}
+    cartItems.splice(index, 1);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCartItems();
+  }
 
-function increaseCartQuantity(index) {
-  cartItems[index].quantity++;
-  cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
-  renderCartItems();
-}
+  function increaseCartQuantity(index) {
+    cartItems[index].quantity++;
+    cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCartItems();
+  }
 
-function decreaseCartQuantity(index) {
-  if (cartItems[index].quantity > 1) {
+  function decreaseCartQuantity(index) {
+    if (cartItems[index].quantity > 1) {
       cartItems[index].quantity--;
       cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
       renderCartItems();
+    }
   }
-}
+
+  function checkout() {
+   
+    window.location.href = "checkout.html";
+  }
 </script>
 </body>
 </html>

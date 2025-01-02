@@ -5,7 +5,7 @@
     <title>Products</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="inv-info.css">
-    <!-- Bootstrap CSS -->
+  
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 
@@ -17,139 +17,306 @@
             <img src="logo2.png" alt="LaavaaPrint Logo">
         </div>
         <div class="icons">
-            <a href="#"><img src="search.png"alt="Search" height="24"></a>
-            <a href="cart.html"><img src="cart.png"alt="Cart" height="28"></a> 
-            <a href="user.html"><img src="user.png" alt="User"height="24"></a>
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
+            <a href="cart.html" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
+            <a href="javascript:void(0);" onclick="logout()"><img src="user.png" alt="User" height="24"></a>
+        </div>
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
+            <button onclick="performSearch()">Search</button>
         </div>
     </div>
+</div>
         <div class="black-bar">
         <div class="menu">
-                <a class="active" href="products.html">PRODUCTS</a>
-                <a href="services.html">SERVICES</a>
+                <a href="products.html">PRODUCTS</a>
+                <a class="active" href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
                 <a href="contact.html">CONTACT</a>
             </div>
         </div>
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="menus" id="menus">
+            <div class="close-icon" onclick="closeMenu()">X</div>
+            <a href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a class="active"  href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+
+        <div class="items" id="items">
+            <div class="item" data-name="Business Cards" data-url="businesscard-info.html"></div>
+          <div class="item" data-name="Flyers and Brochures" data-url="flybro-info.html"></div>
+          <div class="item" data-name="Posters and Banners" data-url="posban-info.html"></div>
+          <div class="item" data-name="Sign and Signage" data-url="sign-info.html"></div>
+          <div class="item" data-name="Promotional Items" data-url="keychain-info.html"></div>
+          <div class="item" data-name="Booklets and Catalogs" data-url="bookcat-info.html"></div>
+          <div class="item" data-name="Custom Stationery" data-url="cusstationery-info.html"></div>
+          <div class="item" data-name="Invitations and Greeting Cards" data-url="inv-info.html"></div>
+          <div class="item" data-name="Pens" data-url="pro-pens.html"></div>
+          <div class="item" data-name="Mugs" data-url="pro-mugs.html"></div>
+          <div class="item" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
+          <div class="item" data-name="Jerseys" data-url="pro-jerseys.html"></div>
+          <div class="item" data-name="Keychains" data-url="pro-keychains.html"></div>
+          <div class="item" data-name="Calendars" data-url="pro-calendars.html"></div>
+          <div class="item" data-name="Lanyards" data-url="pro-lanyards.html"></div>
+          <div class="item" data-name="Tote Bags" data-url="pro-totebag.html"></div>
+        </div>
+         
+           <div class="search-results" id="searchResults"></div>
         
         </header>
 
         <div class="container">
-   <div class="product-image">
-    <img src="invcard.png" alt="Invitations"/>
+    <div class="mySlides">
+    <img src="invcard.png"/>
    </div>
+
    <div class="product-details">
-    <h1>
-     Invitations & Greeting Cards
-    </h1>
-    <div class="price">
-     ₱50 - ₱150
-    </div>
-    <p>
-     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
-    </p>
+    <h1>Invitation Cards</h1>
+    <div class="price">₱100.00</div>
+    <p>Beautifully designed custom invitations and greeting cards for any occasion. High-quality prints and unique designs for memorable messages.</p>
+    <form id="productForm">
+   
     <div class="options">
-        
-    <label>Style</label>
-      
-    <button>CUSTOM THANK YOU CARDS</button>
-    <button>BIRTHDAY INVITATIONS</button>
-    <button>GRADUATION INVITATIONS</button>
-    <button>WEDDING INVITATIONS</button>
-    <button>CUSTOM HOLIDAY CARDS</button>
-    <button>POSTCARDS</button>
-
+    <label>Style</label>   
+    <button type="button" onclick="selectStyle ('Custom Thank you Cards')">CUSTOM THANK YOU CARDS</button>
+    <button type="button" onclick="selectStyle ('Custom Holiday')">CUSTOM HOLIDAY CARDS</button>
+    <button type="button" onclick="selectStyle ('Graduation Invitations')">GRADUATION INVITATIONS</button>
+    <button type="button" onclick="selectStyle ('Wedding Invitations')">WEDDING INVITATIONS</button>
+    <button type="button" onclick="selectStyle ('Bday Invitation')">BIRTHDAY INVITATIONS</button>
+    <button type="button" onclick="selectStyle ('Post Cards')">POSTCARDS</button>
+    <input type="hidden" id="selectedStyle" name="style">
+    </div>
+    
+    <div class="options">
      <label>Format</label>
-     
-     <button>FOLDED</button>
-     <button>UNFOLDED</button>
+     <button type="button" onclick="selectFormat ('Folded')">FOLDED</button>
+     <button type="button" onclick="selectFormat ('Unfolded')">UNFOLDED</button>
+     <input type="hidden" id="selectedFormat" name="format">
     </div>
-    <div class="options">
-        <label for="option1">Sizes</label>
-        <button id="option1">RECTANGLE</button>
-        <button id="option2">A1/BARONIAL</button>
-        <button id="option3">5 BARONIAL</button>
-        <button id="option4">A2/5.5 BARONIAL</button>
-        <button id="option4">A6/6 BARONIAL</button>
-        <button id="option4">A7/LEE (STANDARD)</button>
-        <button id="option4">A8</button>
-        <button id="option4">A9</button>
-        <button id="option4">A10</button>
-        <button id="option4">SQUARE</button>
-        <button id="option4">SMALL</button>
-        <button id="option4">MEDIUM</button>
-        <button id="option4">LARGE</button>
+   
+        <div class="options">
+        <label>Sizes</label>
+        <button type="button" onclick="selectSizes ('RECTANGLE')">RECTANGLE</button>
+        <button type="button" onclick="selectSizes ('A1/BARONIAL')">A1/BARONIAL</button>
+        <button type="button" onclick="selectSizes ('5 BARONIAL')">5 BARONIAL</button>
+        <button type="button" onclick="selectSizes ('A2/5.5 BARONIAL')">A2/5.5 BARONIAL</button>
+        <button type="button" onclick="selectSizes ('A6/6 BARONIAL')">A6/6 BARONIAL</button>
+        <button type="button" onclick="selectSizes ('A7/LEE STANDARD')">A7/LEE (STANDARD)</button>
+        <button type="button" onclick="selectSizes ('A8')">A8</button>
+        <button type="button" onclick="selectSizes ('A9')">A9</button>
+        <button type="button" onclick="selectSizes ('A10')">A10</button>
+        <button type="button" onclick="selectSizes ('SQUARE')">SQUARE</button>
+        <button type="button" onclick="selectSizes ('SMALL')">SMALL</button>
+        <button type="button" onclick="selectSizes ('MEDIUM')">MEDIUM</button>
+        <button type="button" onclick="selectSizes ('LARGE')">LARGE</button>
+        <input type="hidden" id="selectedSizes" name="sizes">
+    </div>
 
-    </div>
     <div class="quantity">
-     <label>
-      Quantity
-     </label>
-        <button onclick="decreaseQuantity()">
-         -
-        </button>
-        <input id="quantity" type="text" value="1"/>
-        <button onclick="increaseQuantity()">
-         +
-        </button>
-       </div>
-    <button class="add-to-cart">
-     ADD TO CART</button>
-   </div>
-  </div>
+        <label>Quantity</label>
+        <button type="button" onclick="decreaseQuantity()">-</button>
+        <input id="quantity" name="quantity" type="text" value="20">
+        <button type="button" onclick="increaseQuantity()">+</button>
+    </div>
 
-        <!-- Bootstrap JS and dependencies (optional) -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-        <script>
-        // Toggle the sidebar and maximize content
-            document.getElementById('toggleSidebar').addEventListener('click', function () {
-    var sidebar = document.getElementById('sidebar');
-    var content = document.getElementById('content');
-    var items = document.querySelector('.items');
+    <input type="hidden" name="product_name" value="Invitations Cards">
+    <input type="hidden" name="price" value="100"> 
 
-    // Toggle the collapsed state for the sidebar
-    sidebar.classList.toggle('collapsed');
+    <button type="button" class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
 
-    // Toggle the maximized state for the content
-    content.classList.toggle('maximized');
-});
+</form>
+</div>
+</div>
+
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCart()">X</span>
+        <h1>Your Cart</h1>
+        <h4>PRODUCT TOTAL</h4>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+            <span>Subtotal:</span>
+            <span id="totalPrice">₱0.00</span>
+        </div>
+        <button onclick="checkout()" class="checkout-btn">Check out</button>
+    </div>
+</div>
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all buttons for Type and Style options
-    const optionButtons = document.querySelectorAll(".product-details .options button");
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+      const optionButtons = document.querySelectorAll(".product-details .options button");
 
-    optionButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            // Remove active class from all buttons in the current options group
-            const buttonsInGroup = this.parentNode.querySelectorAll("button");
+      optionButtons.forEach(button => {
+          button.addEventListener("click", function () {
+              const buttonsInGroup = this.parentNode.querySelectorAll("button");
 
-            buttonsInGroup.forEach(btn => {
-                btn.classList.remove("active-style");  // Remove the 'active-style' class
-            });
+              buttonsInGroup.forEach(btn => {
+                  btn.classList.remove("active-style");
+              });
 
-            // Add active-style class to the clicked button
-            this.classList.add("active-style");
-        });
-    });
-});
+              this.classList.add("active-style");
+          });
+      });
+  });
+  function logout() {
+            const userConfirmed = window.confirm("Are you sure you want to logout?");
+            if (userConfirmed) {
+            
+                window.location.href = "front.html";
+            }
+        }
+  function toggleSearch() {
+      const searchBar = document.getElementById('searchBar');
+      searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
+  }
+
+  function handleEnter(event) {
+      if (event.key === 'Enter') {
+          performSearch();
+      }
+  }
+
+  function performSearch() {
+      const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+      const items = document.querySelectorAll('.item');
+
+     
+      let foundUrl = null;
+      items.forEach(item => {
+          const itemName = item.getAttribute('data-name').toLowerCase();
+          const itemUrl = item.getAttribute('data-url');
+          if (itemName === searchQuery) {
+              foundUrl = itemUrl;
+          }
+      });
+
+      
+      if (foundUrl) {
+          window.location.href = foundUrl;
+      } else {
+          alert(`No results found for "${searchQuery}"`);
+      }
+  }
+  function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
+
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
+
+function selectStyle(style) {
+  document.getElementById('selectedStyle').value = style;
+}
+function selectFormat(format) {
+  document.getElementById('selectedFormat').value = format;
+}
+function selectSizes(sizes) {
+  document.getElementById('selectedSizes').value = sizes;
+}
 
 function increaseQuantity() {
-    var quantity = document.getElementById('quantity');
-    var value = parseInt(quantity.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value++;
-    quantity.value = value;
+  var quantity = document.getElementById('quantity');
+  quantity.value = parseInt(quantity.value, 10) + 1;
 }
 
 function decreaseQuantity() {
-    var quantity = document.getElementById('quantity');
-    var value = parseInt(quantity.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value < 1 ? value = 1 : '';
-    value--;
-    quantity.value = value;
+  var quantity = document.getElementById('quantity');
+  if (quantity.value > 1) {
+      quantity.value = parseInt(quantity.value, 10) - 1;
+  }
 }
 
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+function toggleCart() {
+  const cartModal = document.getElementById("cartModal");
+  cartModal.classList.toggle("open");
+}
+
+function addToCart() {
+  const productName = document.querySelector("input[name='product_name']").value;
+  const style = document.getElementById("selectedStyle").value;
+  const format = document.getElementById("selectedFormat").value;
+  const sizes = document.getElementById("selectedSizes").value;
+  const quantity = parseInt(document.getElementById("quantity").value, 10);
+  const price = parseInt(document.querySelector("input[name='price']").value, 10);
+  const total = price * quantity;
+  const imageUrl = document.querySelector(".mySlides img").src;
+
+  cartItems.push({ productName, style, format, sizes, quantity, price, total, imageUrl });
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  renderCartItems();
+  toggleCart();
+}
+
+function renderCartItems() {
+  const cartItemsContainer = document.getElementById("cartItems");
+  const totalPriceElement = document.getElementById("totalPrice");
+  let totalPrice = 0;
+
+  cartItemsContainer.innerHTML = "";
+  cartItems.forEach((item, index) => {
+      totalPrice += item.total;
+      cartItemsContainer.innerHTML += `
+          <div class="cart-item">
+              <img src="${item.imageUrl}" alt="${item.productName}">
+              <div class="cart-item-details">
+                  <div class="cart-item-a">
+                      <span class="item-name">Product: ${item.productName}</span>
+                      <span class="item-price">₱${item.total}.00</span>
+                  </div>
+                  <div class="style">Style: ${item.style}</div>
+                   <div class="style">Format: ${item.format}</div>
+                    <div class="style">Sizes: ${item.sizes}</div>
+                  <div class="quantity-controls">
+                      <button onclick="decreaseCartQuantity(${index})">-</button>
+                      <input type="text" value="${item.quantity}" readonly>
+                      <button onclick="increaseCartQuantity(${index})">+</button>
+                       <button class="remove-item" onclick="removeFromCart(${index})">
+                  <img src="delete.png" alt="Delete">
+              </button>
+                  </div>
+              </div>
+          </div>
+      `;
+  });
+
+  totalPriceElement.textContent = `₱${totalPrice}.00`;
+}
+
+
+
+function removeFromCart(index) {
+  cartItems.splice(index, 1);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  renderCartItems();
+}
+
+function increaseCartQuantity(index) {
+  cartItems[index].quantity++;
+  cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  renderCartItems();
+}
+
+function decreaseCartQuantity(index) {
+  if (cartItems[index].quantity > 1) {
+      cartItems[index].quantity--;
+      cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      renderCartItems();
+  }
+}
+function checkout() {
+       window.location.href = "checkout.html";
+     }
 </script>
+
 </body>
-</html> 
+</html>

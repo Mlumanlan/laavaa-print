@@ -6,7 +6,7 @@
     <title>Login Account</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="user.css">
-    <!-- Bootstrap CSS -->
+    
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -16,8 +16,8 @@
             <img src="logo2.png" alt="LaavaaPrint Logo">
         </div>
         <div class="icons">
-            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
-            <a href="#"><img src="cart.png"alt="Cart" height="28"></a> 
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="23"></a>
+            <a href="cart.html"><img src="cart.png"alt="Cart" height="28"></a> 
             <a href="user.html"><img src="user.png" alt="User"height="24"></a>
         </div>
         <div class="search-bar" id="searchBar">
@@ -27,7 +27,7 @@
     </div>
         <div class="black-bar">
         <div class="menu">
-                <a class="active" href="products.html">PRODUCTS</a>
+                <a href="user.html">PRODUCTS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="about.html">ABOUT</a>
                 <a href="contact.html">CONTACT</a>
@@ -36,15 +36,14 @@
         <div class="menu-icon" onclick="openMenu()">&#9776;</div>
         <div class="menus" id="menus">
             <div class="close-icon" onclick="closeMenu()">X</div>
-            <a href="products.html">PRODUCTS</a>
+            <a href="user.html">PRODUCTS</a>
             <a href="services.html">SERVICES</a>
-            <a href="packages.html">PACKAGES</a>
-            <a href="blog.html">BLOG</a>
             <a href="about.html">ABOUT</a>
             <a href="contact.html">CONTACT</a>
         </div>
     </header>
-<!-- Login Form -->
+
+
 <div class="login-container">
     <div class="login-box">
         <h2>Login</h2>
@@ -56,7 +55,7 @@
             <button type="submit">SIGN IN</button>
             
         </form>
-        <a href="#" class="fp">Forgot password?</a>
+        <a href="forgotpass.html" class="fp">Forgot password?</a>
         <a href="register.html" class="ca">Create account</a>
     
     <div class="divider">or log in with</div>
@@ -66,7 +65,7 @@
 
    <div class="search-results" id="searchResults"></div>
 
-<!-- Items Section with URLs -->
+
 <div class="items" id="items">
     <div class="item" data-name="Business Cards" data-url="business-cards.html"></div>
     <div class="item" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
@@ -103,7 +102,7 @@
         const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
         const items = document.querySelectorAll('.item');
 
-        // Check for an exact match and redirect if found
+      
         let foundUrl = null;
         items.forEach(item => {
             const itemName = item.getAttribute('data-name').toLowerCase();
@@ -113,7 +112,6 @@
             }
         });
 
-        // Redirect if a match is found
         if (foundUrl) {
             window.location.href = foundUrl;
         } else {
@@ -127,17 +125,9 @@
         function closeMenu() {
             document.getElementById('menus').style.display = 'none';
         }
-        document.querySelector('.ca').addEventListener('click', () => {
-    document.querySelector('.login-container').style.display = 'none';
-    document.querySelector('.register-container').style.display = 'block';
-});
-document.querySelector('.fp').addEventListener('click', () => {
-    document.querySelector('.register-container').style.display = 'none';
-    document.querySelector('.login-container').style.display = 'block';
-});
 
 </script>
-    <!-- Bootstrap JS and dependencies (optional) -->
+  
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

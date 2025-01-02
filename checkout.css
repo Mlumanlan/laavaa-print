@@ -1,4 +1,4 @@
-body {
+   body {
     background-color: white;
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,6 +9,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -17,72 +18,92 @@ body {
     position: inherit;
     align-items: center;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    padding: 0 20px;
 }
+
 .navbar .header {
     align-items: left;
-    margin-left: -1125px;
+    margin-left: 0;
     margin-top: 10px;
     flex-direction: column;
 }
+
 .navbar .header h1 {
     margin: 0;
     margin-left: 10px;
     font-weight: bold;
     font-size: 18px;
 }
+
 .navbar .header h4 {
     margin-left: 10px;
     letter-spacing: 5px;
     font-size: 15px;
 }
+
 .navbar .logo {
     display: flex;
     margin: -10px;
     align-items: center;
 }
+
 .navbar .logo img {
     height: 75px;
     width: 70px;
     margin-right: 10px;
 }
+
 .navbar .logo span {
     font-weight: bold;
 }
+
 .navbar .icons {
     display: flex;
-    gap: 10px; /* Space between icons */
+    gap: 10px;
+    margin-left: auto;
+}
 
-}
 .navbar .icons img {
-    width: 25px;
+    width: 35px;
 }
+
 .container {
     display: flex;
     padding: 20px;
-    width: 50%;
-    margin: 50px auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 30px auto;
     background-color: #fff;
-    padding: 20px;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .left, .right {
-    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
+    background-color: #f9f9f9;
 }
+
 .left {
     flex: 2;
     margin-right: 20px;
 }
+
 .right {
     flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
 h2 {
     font-size: 18px;
     margin-bottom: 10px;
 }
+
 input[type="text"], input[type="email"], select {
     width: 100%;
     padding: 10px;
@@ -91,24 +112,29 @@ input[type="text"], input[type="email"], select {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .checkbox {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
+
 .checkbox input {
     margin-right: 10px;
     color: #ffc107;
 }
+
 .shipping-method {
     background-color: #f5f5f5;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
+
 .payment-method {
     margin-bottom: 20px;
 }
+
 .payment-method img {
     height: 20px;
     margin-right: 5px;
@@ -117,70 +143,263 @@ input[type="text"], input[type="email"], select {
 .payment-method billing-section {
     margin-bottom: 30px;
 }
+
 .payment-method .billing-section p {
     font-size: 14px;
     margin-top: 10px;
     color: #666;
 }
+
 .payment-method  .payment-option, .billing-option {
     border: 1px solid #ddd;
     padding: 10px;
 }
+
 .payment-method  .payment-option label , .billing-option label {
     display: block;
     font-size: 16px;
+    
 }
+
 .payment-method  .payment-option input, .billing-option input {
     margin-right: 10px;
 }
+
 .payment-method  .payment-option img {
     vertical-align: right;
 }
+
 .cod-description {
     background-color: #f7f7f7;
     padding: 10px;
     font-size: 13px;
     color: #666;
 }
-.complete-order-btn {
-    display: block;
-    width: 100%;
-    height: 50px;
-    background-color: #ffcc00;
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    padding: 15px;
-    margin-top: 10px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+
+.order-section{
+    justify-content: center;
 }
-.footer {
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-    margin-top: 20px;
-}
-.product {
+.order-section .product {
     display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    flex-direction: row;
-}
-.product img {
-    height: 70px;
+    margin-top: 15px;
+    width: 200%;
+    height: 200px;
+    font-size: 20px;
     margin-right: 10px;
+    align-items: center;
 }
-.product-details {
-    flex: 1;
+
+.product img {
+    margin-right: 20px;
+    border-radius: 8px;
 }
+
+.product-details p {
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
 .product-price {
     font-weight: bold;
+    font-size: 16px;
+    color: #4CAF50;
 }
-.total {
-    font-size: 18px;
-    flex-direction: row;
+
+.summary p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+#totalAmount {
+    font-size: 20px;
+    color: #000;
+    margin-left: 160px;
     font-weight: bold;
 }
+
+
+.complete-order-btn {
+    display: block;
+    width: 209%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #ffc107;
+    border: 3px solid black;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.complete-order-btn:hover {
+    background-color: #ffb300;
+}
+
+footer.footer {
+    text-align: center;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    padding: 10px;
+    font-size: 13px;
+}
+.menus a, .menu-icon, .close-icon {
+    display: none;
+    }
+
+    @media (max-width: 990px) {
+    
+        .container {
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            padding: 10px; 
+            margin: 0; 
+            width: 100%; 
+        }
+    
+        h2 {
+            font-size: 55px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .checkbox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .checkbox input {
+            margin-right: 10px;
+            color: #ffc107;
+        }
+        
+        .shipping-method {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-method {
+            margin-bottom: 20px;
+        }
+        
+        .payment-method img {
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .payment-method billing-section {
+            margin-bottom: 30px;
+        }
+        
+        .payment-method .billing-section p {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .payment-method  .payment-option, .billing-option {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        
+        .payment-method  .payment-option label , .billing-option label {
+            display: block;
+            font-size: 16px;
+            
+        }
+        
+        .payment-method  .payment-option input, .billing-option input {
+            margin-right: 10px;
+        }
+        
+        .payment-method  .payment-option img {
+            vertical-align: right;
+        }
+        
+        .cod-description {
+            background-color: #f7f7f7;
+            padding: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .order-section .product {
+            display: flex;
+            margin-top: 15px;
+            width: 200%;
+            height: 200px;
+            font-size: 20px;
+            margin-right: 10px;
+            align-items: center;
+        }
+        
+        .product img {
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        
+        .product-details p {
+            margin-top: 15px;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 16px;
+            color: #4CAF50;
+        }
+        
+        .summary p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        
+        #totalAmount {
+            font-size: 20px;
+            color: #000;
+            margin-left: 230px;
+            font-weight: bold;
+        }
+        
+        
+        .complete-order-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            background-color: #ffc107;
+            border: 3px solid black;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 10px;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            margin-top:10px;
+        }
+        footer.footer {
+            text-align: center;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+    }

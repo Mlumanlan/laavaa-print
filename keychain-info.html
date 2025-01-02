@@ -5,7 +5,7 @@
     <title>Products</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="keychain-info.css">
-    <!-- Bootstrap CSS -->
+    
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
 
@@ -17,123 +17,325 @@
             <img src="logo2.png" alt="LaavaaPrint Logo">
         </div>
         <div class="icons">
-            <a href="#"><img src="search.png"alt="Search" height="24"></a>
-            <a href="cart.php"><img src="cart.png"alt="Cart" height="28"></a> 
-            <a href="user.php"><img src="user.png" alt="User"height="24"></a>
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
+            <a href="cart.html" onclick="toggleCart()"><img src="cart.png" alt="Cart" height="28"></a>
+            <a href="javascript:void(0);" onclick="logout()"><img src="user.png" alt="User" height="24"></a>
+        </div>
+        <div class="search-bar" id="searchBar">
+            <input type="text" placeholder="Search items" onkeydown="handleEnter(event)">
+            <button onclick="performSearch()">Search</button>
         </div>
     </div>
+</div>
         <div class="black-bar">
         <div class="menu">
-                <a class="active" href="products.php">PRODUCTS</a>
-                <a href="services.php">SERVICES</a>
-                <a href="about.php">ABOUT</a>
-                <a href="contact.php">CONTACT</a>
+                <a href="products.html">PRODUCTS</a>
+                <a class="active" href="services.html">SERVICES</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
             </div>
         </div>
+        <div class="menu-icon" onclick="openMenu()">&#9776;</div>
+        <div class="menus" id="menus">
+            <div class="close-icon" onclick="closeMenu()">X</div>
+            <a href="products.html">PRODUCTS</a>
+            <a href="services.html">SERVICES</a>
+            <a class="active"  href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </div>
+
+        <div class="items" id="items">
+          <div class="item" data-name="Business Cards" data-url="businesscard-info.html"></div>
+          <div class="item" data-name="Flyers and Brochures" data-url="flybro-info.html"></div>
+          <div class="item" data-name="Posters and Banners" data-url="posban-info.html"></div>
+          <div class="item" data-name="Sign and Signage" data-url="sign-info.html"></div>
+          <div class="item" data-name="Promotional Items" data-url="keychain-info.html"></div>
+          <div class="item" data-name="Booklets and Catalogs" data-url="bookcat-info.html"></div>
+          <div class="item" data-name="Custom Stationery" data-url="cusstationery-info.html"></div>
+          <div class="item" data-name="Invitations and Greeting Cards" data-url="inv-info.html"></div>
+          <div class="item" data-name="Pens" data-url="pro-pens.html"></div>
+          <div class="item" data-name="Mugs" data-url="pro-mugs.html"></div>
+          <div class="item" data-name="T-Shirts" data-url="pro-tshirts.html"></div>
+          <div class="item" data-name="Jerseys" data-url="pro-jerseys.html"></div>
+          <div class="item" data-name="Keychains" data-url="pro-keychains.html"></div>
+          <div class="item" data-name="Calendars" data-url="pro-calendars.html"></div>
+          <div class="item" data-name="Lanyards" data-url="pro-lanyards.html"></div>
+          <div class="item" data-name="Tote Bags" data-url="pro-totebag.html"></div>
+      </div>
+      <div class="search-results" id="searchResults"></div>
         
         </header>
-
+   
         <div class="container">
-   <div class="product-image">
-    <img src="graduation.png" alt="Graduation"/>
+        <div class="mySlides">
+    <img src="love.png"/>
    </div>
    <div class="product-details">
-    <h1>
-     Keychain
-    </h1>
-    <div class="price">
-     ₱50 - ₱150
-    </div>
-    <p>
-     A vibrant, personalized keychain featuring beautifully embroidered names, perfect for adding a colorful touch to your accessories.
-    </p>
+    <h1>Keychain</h1>
+    <div class="price">₱300.00</div>
+    <p>Custom keychains that make a great gift or promotional item. High-quality materials with your design for lasting impact.</p>
+    <form id="productForm">
+    
     <div class="options">
-     <label>Type</label>
-     
-     <button>Name</button>
-     <button>Initial</button>
+    <label>Type</label>
+     <button type="button" onclick="selectType ('Name')">Name</button>
+     <button type="button" onclick="selectType ('Initial')">Initial</button>
+     <input type="hidden" id="selectedType" name="type">
     </div>
+
     <div class="options">
-        <label for="option1">Variant</label>
-        <button id="option1">Graduation</button>
-        <button id="option2">Spotify</button>
-        <button id="option3">Qr code</button>
-        <button id="option4">Phone Stand</button>
-        <button id="option5">Name</button>
-        <button id="option6">Love</button>
-        <button id="option7">Anime</button>
-        <button id="option8">Picture</button>
+        <label>Variant</label>
+        <button type="button" onclick="selectVariant ('Graduation')">Graduation</button>
+        <button type="button" onclick="selectVariant ('Spotify')">Spotify</button>
+        <button type="button" onclick="selectVariant ('Qr Code')">Qr Code</button>
+        <button type="button" onclick="selectVariant ('Phone Stand')">Phone Stand</button>
+        <button type="button" onclick="selectVariant ('Name')">Name</button>
+        <button type="button" onclick="selectVariant ('Love')">Love</button>
+        <button type="button" onclick="selectVariant ('Anime')">Anime</button>
+        <button type="button" onclick="selectVariant ('Picture')">Picture</button>
+        <input type="hidden" id="selectedVariant" name="variant">
     </div>
+    
     <div class="quantity">
-     <label>
-      Quantity
-     </label>
-        <button onclick="decreaseQuantity()">
-         -
-        </button>
-        <input id="quantity" type="text" value="1"/>
-        <button onclick="increaseQuantity()">
-         +
-        </button>
-       </div>
-    <button class="add-to-cart">
-     ADD TO CART</button>
-   </div>
-  </div>
+        <label>Quantity</label>
+        <button type="button" onclick="decreaseQuantity()">-</button>
+        <input id="quantity" name="quantity" type="text" value="10">
+        <button type="button" onclick="increaseQuantity()">+</button>
+    </div>
 
-        <!-- Bootstrap JS and dependencies (optional) -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-        <script>
-        // Toggle the sidebar and maximize content
-            document.getElementById('toggleSidebar').addEventListener('click', function () {
-    var sidebar = document.getElementById('sidebar');
-    var content = document.getElementById('content');
-    var items = document.querySelector('.items');
+    <input type="hidden" name="product_name" value="Keychain">
+    <input type="hidden" name="price">
 
-    // Toggle the collapsed state for the sidebar
-    sidebar.classList.toggle('collapsed');
+    <button type="button" class="add-to-cart" onclick="addToCart()">ADD TO CART</button>
 
-    // Toggle the maximized state for the content
-    content.classList.toggle('maximized');
-});
+</form>
+</div>
+</div>
+
+<div id="cartModal" class="cart-modal">
+    <div class="cart-modal-content">
+        <span class="close" onclick="toggleCart()">X</span>
+        <h1>Your Cart</h1>
+        <h4>PRODUCT TOTAL</h4>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+            <span>Subtotal:</span>
+            <span id="totalPrice">₱0.00</span>
+        </div>
+        <button onclick="checkout()" class="checkout-btn">Check out</button>
+    </div>
+</div>
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Select all buttons for Type and Style options
-    const optionButtons = document.querySelectorAll(".product-details .options button");
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+</script>
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+      const optionButtons = document.querySelectorAll(".product-details .options button");
 
-    optionButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            // Remove active class from all buttons in the current options group
-            const buttonsInGroup = this.parentNode.querySelectorAll("button");
+      optionButtons.forEach(button => {
+          button.addEventListener("click", function () {
+              const buttonsInGroup = this.parentNode.querySelectorAll("button");
 
-            buttonsInGroup.forEach(btn => {
-                btn.classList.remove("active-style");  // Remove the 'active-style' class
-            });
+              buttonsInGroup.forEach(btn => {
+                  btn.classList.remove("active-style");
+              });
 
-            // Add active-style class to the clicked button
-            this.classList.add("active-style");
-        });
-    });
-});
+              this.classList.add("active-style");
+          });
+      });
+  });
+  function logout() {
+            const userConfirmed = window.confirm("Are you sure you want to logout?");
+            if (userConfirmed) {
+         
+                window.location.href = "front.html";
+            }
+        }
+  function toggleSearch() {
+      const searchBar = document.getElementById('searchBar');
+      searchBar.style.display = searchBar.style.display === 'none' || searchBar.style.display === '' ? 'block' : 'none';
+  }
+
+  function handleEnter(event) {
+      if (event.key === 'Enter') {
+          performSearch();
+      }
+  }
+
+  function performSearch() {
+      const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+      const items = document.querySelectorAll('.item');
+
+      
+      let foundUrl = null;
+      items.forEach(item => {
+          const itemName = item.getAttribute('data-name').toLowerCase();
+          const itemUrl = item.getAttribute('data-url');
+          if (itemName === searchQuery) {
+              foundUrl = itemUrl;
+          }
+      });
+
+     
+      if (foundUrl) {
+          window.location.href = foundUrl;
+      } else {
+          alert(`No results found for "${searchQuery}"`);
+      }
+  }
+  function openMenu() {
+            document.getElementById('menus').style.display = 'flex';
+        }
+
+        function closeMenu() {
+            document.getElementById('menus').style.display = 'none';
+        }
+
+  const priceMap = {
+    "Name": {
+      "Graduation": 450,
+      "Spotify": 800,
+      "Qr code": 1000,
+      "Phone Stand": 800,
+      "Name": 460,
+      "Love": 350,
+      "Anime": 300,
+      "Picture": 900
+    },
+    "Initial": {
+      "Graduation": 350,
+      "Spotify": 500,
+      "Qr code": 700,
+      "Phone Stand": 500,
+      "Name": 400,
+      "Love": 300,
+      "Anime": 300,
+      "Picture": 800
+    }
+  };
+
+function selectType(type) {
+  document.getElementById('selectedType').value = type;
+  updatePrice();
+}
+function selectVariant(variant) {
+  document.getElementById('selectedVariant').value = variant;
+  updatePrice();
+}
 
 function increaseQuantity() {
-    var quantity = document.getElementById('quantity');
-    var value = parseInt(quantity.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value++;
-    quantity.value = value;
+  var quantity = document.getElementById('quantity');
+  quantity.value = parseInt(quantity.value, 10) + 1;
 }
 
 function decreaseQuantity() {
-    var quantity = document.getElementById('quantity');
-    var value = parseInt(quantity.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value < 1 ? value = 1 : '';
-    value--;
-    quantity.value = value;
+  var quantity = document.getElementById('quantity');
+  if (quantity.value > 1) {
+      quantity.value = parseInt(quantity.value, 10) - 1;
+  }
+}
+ 
+  function updatePrice() {
+    const selectedType = document.getElementById('selectedType').value;
+    const selectedVariant = document.getElementById('selectedVariant').value;
+    const priceElement = document.querySelector('.price');
+    if (selectedType && selectedVariant) {
+      const price = priceMap[selectedType][selectedVariant];
+      priceElement.textContent = `₱${price}.00`;
+    } else {
+      priceElement.textContent = "₱0.00"; 
+    }
+  }
+
+let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+function toggleCart() {
+  const cartModal = document.getElementById("cartModal");
+  cartModal.classList.toggle("open");
 }
 
+function addToCart() {
+  const productName = document.querySelector("input[name='product_name']").value;
+  const type = document.getElementById("selectedType").value;
+  const variant= document.getElementById("selectedVariant").value;
+  const quantity = parseInt(document.getElementById("quantity").value, 10);
+ 
+  if (!type || !variant) {
+      alert("Please select a style and print option.");
+      return;
+    }
+
+    const price = priceMap[type][variant];
+    const total = price * quantity;
+    const imageUrl = document.querySelector(".mySlides img").src;
+
+  cartItems.push({ productName, type, variant, quantity, price, total, imageUrl });
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  renderCartItems();
+  toggleCart();
+}
+
+function renderCartItems() {
+  const cartItemsContainer = document.getElementById("cartItems");
+  const totalPriceElement = document.getElementById("totalPrice");
+  let totalPrice = 0;
+
+  cartItemsContainer.innerHTML = "";
+  cartItems.forEach((item, index) => {
+      totalPrice += item.total;
+      cartItemsContainer.innerHTML += `
+          <div class="cart-item">
+              <img src="${item.imageUrl}" alt="${item.productName}">
+              <div class="cart-item-details">
+                  <div class="cart-item-a">
+                      <span class="item-name">Product: ${item.productName}</span>
+                      <span class="item-price">₱${item.total}.00</span>
+                  </div>
+                  <div class="style">Type: ${item.type}</div>
+                   <div class="type">Variant: ${item.variant}</div>
+                  <div class="quantity-controls">
+                      <button onclick="decreaseCartQuantity(${index})">-</button>
+                      <input type="text" value="${item.quantity}" readonly>
+                      <button onclick="increaseCartQuantity(${index})">+</button>
+                       <button class="remove-item" onclick="removeFromCart(${index})">
+                  <img src="delete.png" alt="Delete">
+              </button>
+                  </div>
+              </div>
+          </div>
+      `;
+  });
+
+  totalPriceElement.textContent = `₱${totalPrice}.00`;
+}
+
+function removeFromCart(index) {
+  cartItems.splice(index, 1);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  renderCartItems();
+}
+
+function increaseCartQuantity(index) {
+  cartItems[index].quantity++;
+  cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  renderCartItems();
+}
+
+function decreaseCartQuantity(index) {
+  if (cartItems[index].quantity > 1) {
+      cartItems[index].quantity--;
+      cartItems[index].total = cartItems[index].price * cartItems[index].quantity;
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      renderCartItems();
+  }
+}
+function checkout() {
+     
+       window.location.href = "checkout.html";
+     }
 </script>
+
 </body>
 </html>

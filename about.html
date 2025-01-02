@@ -6,7 +6,6 @@
     <title>LaavaaPrint Solution</title>
     <link rel="shortcut icon" type="x-icon" href="LPSlogo.png">
     <link rel="stylesheet" href="about.css">
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -17,7 +16,7 @@
             <img src="logo2.png" alt="LaavaaPrint Logo">
         </div>
         <div class="icons">
-            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="24"></a>
+            <a href="javascript:void(0);" onclick="toggleSearch()"><img src="search.png" alt="Search" height="23"></a>
             <a href="cart.html"><img src="cart.png"alt="Cart" height="28"></a> 
             <a href="user.html"><img src="user.png" alt="User"height="24"></a>
         </div>
@@ -28,33 +27,70 @@
     </div>
     <div class="black-bar">
         <div class="menu">
-            <a href="products.html">PRODUCTS</a>
+            <a href="user.html">PRODUCTS</a>
             <a href="services.html">SERVICES</a>
-            <a href="about.html">ABOUT</a>
+            <a class="active" href="about.html">ABOUT</a>
             <a href="contact.html">CONTACT</a>
         </div>
     </div>
     <div class="menu-icon" onclick="openMenu()">&#9776;</div>
     <div class="menus" id="menus">
         <div class="close-icon" onclick="closeMenu()">X</div>
-        <a href="products.html">PRODUCTS</a>
+        <a href="user.html">PRODUCTS</a>
         <a href="services.html">SERVICES</a>
-        <a href="about.html">ABOUT</a>
+        <a class="active"  href="about.html">ABOUT</a>
         <a href="contact.html">CONTACT</a>
     </div>
     </header>
 
-    <div class="hero">
-    <div class="overlay">
-            <h1>Premium Printing,<br>Endless Possibilities</h1>
-            <a href="products.html" class="cta-button">Start an Order</a>
+    <div class="container">
+        <div class="content">
+            <!-- Left Section -->
+            <div class="image-section">
+                <div class="image-wrapper">
+                    <img src="bg.png" alt="First Image">
+                    <img src="tshirt2.png" alt="Second Image" class="overlay-image">
+                </div>
+                <img src="LPSLOGO.png" alt="UFO Icon" class="icon">
+            </div>
+
+            <div class="text-section">
+                <h2>ESTABLISHED IN 2024</h2>
+                <p>LAAVAAPRINT! Welcome to Laavaa Printing Shop, where we strive to provide you with a seamless and hassle-free experience for all your printing needs. Our innovative solutions are carefully designed to simplify the process of purchasing and managing orders, ensuring that every step is easy and efficient.</p>
+                <p>Whether placing a single order or managing multiple projects, we’re here to help you save time and effort while delivering high-quality results. At Laavaa Printing Shop, we combine state-of-the-art technology with outstanding customer service to meet your unique needs, ensuring that your experience with us is smooth and rewarding from start to finish. Discover the perfect blend of convenience, reliability, and excellence at Laavaa Printing Shop your trusted partner for professional printing solutions.</p>
+            </div>
+        </div>
+    
+
+    <div class="content">
+        <div class="text-section">
+            <h2>OUR MISSION</h2>
+            <p>At laavaa, our mission is simple: to make online shopping accessible, easy, and enjoyable for everyone. We aim to empower buyers by offering a robust platform that connects them in meaningful ways, facilitating seamless transactions and the growth of online businesses.</p>
         </div>
     </div>
+    <div class="content">
+        <div class="text-section">
+            <h2>OUR PROMOTIONAL ITEMS</h2>
+        </div>
+    </div>
+        <div class="image-grid">
+            <div class="image-container">
+                <img src="fam1.png" alt="Store Image 1">
+            </div>
+            <div class="image-container">
+                <img src="cal1.png" alt="Store Image 2">
+            </div>
+            <div class="image-container">
+                <img src="tb1.png" alt="Store Image 3">
+            </div>
+            <div class="image-container">
+                <img src="mug4.png" alt="Store Image 4">
+            </div>
+        </div>
 
-    <!-- Search Results Section -->
 <div class="search-results" id="searchResults"></div>
 
-<!-- Items Section with URLs -->
+
 <div class="items" id="items">
     <div class="item" data-name="Business Cards" data-url="business-cards.html"></div>
     <div class="item" data-name="Flyers and Brochures" data-url="flyers-brochures.html"></div>
@@ -74,7 +110,11 @@
     <div class="item" data-name="Lanyards" data-url="pro-lanyards.html"></div>
     <div class="item" data-name="Tote Bags" data-url="pro-totebag.html"></div>
 </div>
-
+<footer class="footer">
+    All rights reserved LAAVAAPRINT SOLUTIONS!
+</footer>
+</body>
+</html>
 <script>
     function toggleSearch() {
         const searchBar = document.getElementById('searchBar');
@@ -91,7 +131,6 @@
         const searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
         const items = document.querySelectorAll('.item');
 
-        // Check for an exact match and redirect if found
         let foundUrl = null;
         items.forEach(item => {
             const itemName = item.getAttribute('data-name').toLowerCase();
@@ -101,7 +140,6 @@
             }
         });
 
-        // Redirect if a match is found
         if (foundUrl) {
             window.location.href = foundUrl;
         } else {

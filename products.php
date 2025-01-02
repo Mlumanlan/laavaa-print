@@ -7,7 +7,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 $email = $_SESSION['email'];
-// Logout logic
+
 if (isset($_POST['logout'])) {
 
     session_unset();
